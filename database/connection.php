@@ -6,7 +6,12 @@ class Connection{
 
 	// connecting to the database
 	function connection(){
-		$this->db = mysqli_connect('localhost','root', getenv('DATABASEPASSWORD') ?? "", 'Entreconnect'); // create database connection
+		/* uncomment to create remote connection */
+		$this->db = mysqli_connect('sql6.freemysqlhosting.net','sql6481550',"DwzLIGU18M", 'sql6481550');
+
+		/* uncomment to create local connection */
+		//$this->db = mysqli_connect('localhost','root', getenv('DATABASEPASSWORD') ?? "", 'Entreconnect');
+
 		if(mysqli_connect_errno()){
 			return false;
 		}
