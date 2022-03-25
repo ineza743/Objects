@@ -1,6 +1,6 @@
 <?php
 
-require('../database_connection/connection.php');
+require('../database/connection.php');
 
 
 class business extends Connection{

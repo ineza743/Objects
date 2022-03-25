@@ -1,5 +1,5 @@
 <?php
-require_once("../database_connection/connection.php");
+require_once("../database/connection.php");
 
 
 class Cart extends Connection
