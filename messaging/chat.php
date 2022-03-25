@@ -127,7 +127,7 @@ $login_id = $_SESSION['login_id'];
     </section>
   </div>
 
-  <script src="javascript/chat.js"></script>
+  <script src="./javascript/chat.js"></script>
 
 </body>
 </html>

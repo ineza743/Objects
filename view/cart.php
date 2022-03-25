@@ -304,7 +304,7 @@ a:hover {
 
 
 <script src="https://js.paystack.co/v1/inline.js"></script> 
-<script src="js/paystack.js"></script>
+<script src="./js/paystack.js"></script>
 
 </body>
 
