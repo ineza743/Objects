@@ -1,7 +1,8 @@
 <?php 
     session_start();
     //if(isset($_SESSION['id'])){
-        $conn = mysqli_connect("localhost", "root", "", "Entreconnect");
+      $conn = mysqli_connect('sql6.freemysqlhosting.net','sql6481550',"DwzLIGU18M", 'sql6481550');
+
         if(!$conn){
           echo "Database connection error".mysqli_connect_error();
         }
