@@ -12,7 +12,7 @@ if (isset($_POST['signin'])) {
         echo ("<script>alert('Unknown email!'); window.location.href = 'incubator_login.php';</script>");}
 
     else  {
-        echo ("<script>window.location.href = '../view/investor_Dashboard.php';</script>");}
+        echo ("<script>window.location.href = '../view/investor_dashboard.php';</script>");}
 
 }
 

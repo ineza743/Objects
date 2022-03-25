@@ -15,7 +15,7 @@ if (isset($_POST['signin'])) {
         $_SESSION['login_id'] = $investor['investor_id'];
 
      
-        echo ("<script>window.location.href = '../view/investor_Dashboard.php';</script>");
+        echo ("<script>window.location.href = '../view/investor_dashboard.php';</script>");
 
 }
 }
