@@ -69,6 +69,18 @@ class supporter extends Connection{
         where incubator_id = '$incubator_id'");
 	}
 
+		//getting total investors
+		function total_investors(){
+			return $this->fetchOne("select count(investor_id) from investor");
+		}
+		
+		//getting total incubators
+		function total_incubators(){
+			return $this->fetchOne("select count(incubator_id) from incubator");
+		}
+
 }
+
+
 
 ?>

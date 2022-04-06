@@ -33,5 +33,9 @@ class business extends Connection{
 	function update_business($business_id,$f_name, $l_name,$email,$phone,$bussiness_name,$role,$address,$business_type,$linkedin,$instagram,$twitter,$details,$picture){
 		return $this->query("update business set f_name= '$f_name',l_name ='$l_name',email ='$email' ,phone = '$phone' ,bussiness_name= '$bussiness_name',role='$role' ,address= '$address',business_type='$business_type' ,linkedin='$linkedin' ,instagram='$instagram' ,twitter='$twitter' ,details='$details' ,picture= '$picture'
         where business_id = '$business_id'");
-    }
+	}
+		//getting total businesses
+		function total_business(){
+			return $this->fetchOne("select count(business_id) from business");
+		}
 }

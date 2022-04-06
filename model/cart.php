@@ -26,6 +26,12 @@ class Cart extends Connection
         return $this->fetch($select);
     }
 
+        //get business's id
+        public function businessCart(){
+            $select = "SELECT `product`.`business_id` FROM `product`
+            JOIN `cart` on (`cart`.`product_id` = `product`.`product_id`)";
+            return $this->fetchOne($select);
+        }
 
 
 
@@ -35,8 +41,13 @@ class Cart extends Connection
         return $this->query($update);
     }
 
-   
+      //Inserting into orders
+      public function InsertOrder( $date, $reference,$amount,$quantity, $buyer_email,$business_id){
+        return $this->query("INSERT INTO product_order( porder_date, reference_nbr, amount,quantity,buyer_email,business_id) 
+        VALUES ('$date', '$reference', '$amount','$quantity','$buyer_email','$business_id') ");
+    }
 
+    
     //deleting cart
     public function deleteCart($buyer_id,$product_id){
         $delete = "DELETE FROM `cart` WHERE `buyer_id`='$buyer_id' AND `product_id`='$product_id'";
@@ -50,7 +61,19 @@ class Cart extends Connection
         return $this->fetchOne($total);
     }
 
+        //calculating the quantity on cart
+        public function quantityCart($buyer_id){
+            $total="SELECT SUM(`quantity_nbr`) as quantity
+            FROM `cart`  WHERE `buyer_id`='$buyer_id'";
+            return $this->fetchOne($total);
+        }
 
+    //calculating daily sales
+    public function dailysales($business_id){
+        $total="SELECT SUM(amount) 
+        FROM product_order WHERE business_id = $business_id AND porder_date = CURRENT_DATE()";
+        return $this->fetchOne($total);
+    }
 }
 
 ?>

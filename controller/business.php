@@ -36,6 +36,11 @@ function updating_business($business_id,$f_name, $l_name,$email,$phone,$bussines
 
 }
 
+function selecting_total(){
+    $bus = new business();
+    return $bus->total_business();
+}
+
 
 
 

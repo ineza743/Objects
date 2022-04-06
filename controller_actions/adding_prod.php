@@ -1,9 +1,11 @@
 <?php
 require_once("../controller/product.php");
+session_start();
+$login_id = $_SESSION['login_id'];
 
 //grad form's data if it was submitted
 if(isset($_POST['add'])){
-    $id = $_POST['id'];
+    $prodyear = $_POST['id'];
     $prodname = $_POST['prodname'];
     $catname = $_POST['catname'];
     $price = $_POST['price'];
@@ -22,7 +24,7 @@ if(isset($_POST['add'])){
         $FileSubmitted=move_uploaded_file($Filenames,$FileDestination);
         
         if($FileSubmitted){
-            $success= added_product($id, $prodname,  $catname,$price,$FileDestination,$info); //add the details
+            $success= added_product($login_id,$prodyear, $prodname,  $catname,$price,$FileDestination,$info); //add the details
         
 
             //if the file was successfully submitted

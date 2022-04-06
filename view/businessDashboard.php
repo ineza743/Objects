@@ -1,3 +1,15 @@
+<?php
+session_start();
+$login_id = $_SESSION['login_id']; //current businesses id
+
+require('../controller/supporter.php');
+require('../controller/cart.php');
+$investors=implode(total_investor()); //total number of investors
+$incubators=implode(total_incubator());  //total number of incubators
+$sales=implode(sales($login_id));  //total number of incubators
+?>
+
+
 <!--
 =========================================================
 * Material Dashboard 2 - v3.0.0
@@ -84,14 +96,13 @@
                 <i class="material-icons opacity-10">person</i>
               </div>
               <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">daily sales</p>
-                <h4 class="mb-0">2,300</h4>
+                <p class="text-sm mb-0 text-capitalize">daily sales (GHC)</p>
+                <h4 class="mb-0"><?php echo $sales;?></h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
             <div class="card-footer p-3">
       
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than lask month</p>
 
             </div>
           </div>
@@ -106,13 +117,12 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Available investors</p>
-                <h4 class="mb-0">3300</h4>
+                <h4 class="mb-0"><?php echo $investors;?></h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
             <div class="card-footer p-3">
             <div class="text-center">
-            <p class="mb-0"><span class="text-success text-sm font-weight-bolder"></span>The list is available</p>
 
               </div>
             </div>
@@ -129,13 +139,12 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Available incubator</p>
-                <h4 class="mb-0">30</h4>
+                <h4 class="mb-0"><?php echo $incubators;?></h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
             <div class="card-footer p-3">
             <div class="text-center">
-            <p class="mb-0"><span class="text-success text-sm font-weight-bolder"></span>The list is available</p>
               </div>
             </div>
             </div>
@@ -158,7 +167,6 @@
             <hr class="dark horizontal my-0">
             <div class="card-footer p-3">
       
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than lask month</p>
 
             </div>
           </div>

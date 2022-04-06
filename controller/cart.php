@@ -23,6 +23,12 @@ require_once("../model/cart.php");
         return $object->SelectOne($product_id, $buyer_id);
     }
 
+    //Selecting business id
+    function businessCartID(){
+        $object= new cart();
+        return $object->businessCart();
+    }
+
     
   //cart by buyer's id
     function displayingCart($buyer_id){
@@ -44,12 +50,32 @@ require_once("../model/cart.php");
         return $object->deleteCart($buyer_id,$product_id);
     }
 
+       //inserting orders
+       function InsertingOrder($date, $reference,$amount,$quantity, $buyer_email,$business_id){
+        $object=new cart();
+        return $object->InsertOrder( $date, $reference,$amount,$quantity, $buyer_email,$business_id);}
+
 
     //calculating the total amount on cart
     function cartTotal($buyer_id){
         $object= new cart();
         return $object->TotalCart($buyer_id);
     }
+
+      //calculating the quantity on cart
+      function cartquantiny($buyer_id){
+        $object= new cart();
+        return $object->quantityCart($buyer_id);
+    }
+
+    
+          //daily sales
+          function sales($business_id){
+            $object= new cart();
+            return $object->dailysales($business_id);
+        }
+
+ 
 
 
 

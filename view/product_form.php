@@ -208,8 +208,8 @@ button:focus {
 
 
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Serial number<span class="text-danger"> *</span></label> <input type="text" id="id" name="id" placeholder="Enter product SSN" > </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">product name<span class="text-danger"> *</span></label> <input type="text" id="prodname" name="prodname" placeholder="Enter product name"> </div>
+                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">product name<span class="text-danger"> *</span></label> <input type="text" id="prodname" name="prodname" placeholder="Enter product name"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">production year<span class="text-danger"> *</span></label> <input type="year" id="id" name="id" placeholder="Enter product year" > </div>
                     </div>
 
                     

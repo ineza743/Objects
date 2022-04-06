@@ -4,9 +4,9 @@
 require('../model/product.php');
 
 //instances of products
-function added_product($product_id, $product_name, $category_id,$price,$picture,$information){
+function added_product($business_id,$year, $product_name, $category_id,$price,$picture,$information){
     $prod = new Product();
-    return $prod->adding_product($product_id, $product_name, $category_id,$price,$picture,$information);
+    return $prod->adding_product($business_id,$year, $product_name, $category_id,$price,$picture,$information);
 }
 
 

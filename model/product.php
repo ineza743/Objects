@@ -7,17 +7,17 @@ require('../database/connection.php');
 //extend the class connection
 class Product extends Connection{
 
-	function adding_product($product_id, $product_name, $category_id,$price,$picture,$information){
-		return $this->query("insert into product(product_id, product_name, category_id, price , picture, information) 
-        values('$product_id', '$product_name', '$category_id','$price','$picture','$information')");
+	function adding_product($business_id,$year, $product_name, $category_id,$price,$picture,$information){
+		return $this->query("insert into product( product_name, category_id, price , picture, information,business_id,prodyear) 
+        values('$product_name', '$category_id','$price','$picture','$information','$business_id','$year')");
 	}
     
 	function deleting_product($product_id){
 		return $this->query("delete from product where product_id = '$product_id'");
 	}
 
-	function updating_product($product_id, $product_name, $category_id,$price,$picture,$information){
-		return $this->query("update product set product_id='$product_id', product_name='$product_name', category_id='$category_id', price='$price' , picture = '$picture', information='$information' where product_id = '$product_id'");
+	function updating_product($prodyear, $product_name, $category_id,$price,$picture,$information){
+		return $this->query("update product set prodyear='$prodyear', product_name='$product_name', category_id='$category_id', price='$price' , picture = '$picture', information='$information' where product_id = '$product_id'");
 	}
     function fetch_products(){
 		return $this->fetch("select * from product");

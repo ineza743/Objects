@@ -67,11 +67,20 @@ function deleting_incubator($id){
 
 //updating investor
 function updating_incubator($investor_id,$first_name, $last_name,$email,$address,$phone,$occupation,$business_type,$document,$password,$details){
-    $investor = new customer();
+    $investor = new supporter();
     return $investor->update_incubator($investor_id,$first_name, $last_name,$email,$address,$phone,$occupation,$business_type,$document,$password,$details);
 
 }
 
+function total_investor(){
+    $investor = new supporter();
+    return $investor->total_investors();
+}
+
+function total_incubator(){
+    $investor = new supporter();
+    return $investor->total_incubators();
+}
 
 
 ?>
