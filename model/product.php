@@ -25,6 +25,10 @@ class Product extends Connection{
 	
 	function fetch_product($product_id){
 		return $this->fetchOne("select * from product where product_id='$product_id'");
+	}
+	
+	function fetch_product_cat($category_id){
+		return $this->fetchOne("select * from product where category_id='$category_id'");
     }
 
 	function adding_category($category_id,$category_name,$category_desc){
@@ -36,7 +40,9 @@ class Product extends Connection{
 
 	function fetch_categories(){
         return $this->fetch(" select * FROM category");      
-    }
+	}
+	
+	
 	function fetch_category($category_id){
 		return $this->fetchOne("select * from category where category_id='$category_id'");
 	}

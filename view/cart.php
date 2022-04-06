@@ -269,17 +269,18 @@ a:hover {
                 <input class="col" id="total" name="total" value= <?=$Total["total"];?>  required disabled/>
 
             </div>
+            
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                <div class="col">Enter name</div>
-                <input class="col" id="name" name="B_name"   required />
+                <div class="col">Enter name*</div>
+                <input class="col" id="name" name="B_name"  required  />
             </div>
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                <div class="col">Enter email</div>
-                <input class="col" id="email" name="email"   required />
+                <div class="col">Enter email*</div>
+                <input class="col" id="email" name="email"  required  />
             </div>
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                <div class="col">Enter address</div>
-                <input class="col" id="address" name="address"   required />
+                <div class="col">Enter address*</div>
+                <input class="col" id="address" name="address"  required  />
             </div>
             <hr>
              <button type="button" onclick="pay()" class="btn btn-success">CHECKOUT</button>
@@ -303,8 +304,8 @@ a:hover {
 </nav>
 
 
-<script src="https://js.paystack.co/v1/inline.js"></script> 
-<script src="./js/paystack.js"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script src="js/paystack.js"></script>
 
 </body>
 

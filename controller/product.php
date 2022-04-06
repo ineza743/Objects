@@ -64,6 +64,11 @@ function fetched_categoryname($category_id){
     return $prod->fetch_name($category_id);
 }
 
+function fetch_product_category($category_id){
+    $prod = new Product();
+    return $prod->fetch_product_cat($category_id);
+}
+
 
 
 

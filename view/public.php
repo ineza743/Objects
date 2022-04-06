@@ -173,10 +173,11 @@ $Todisplay=fetched_products(); //fetch all products from the database
                 <div class="container">
                     <div class="row">
                         <!-- Begin Li's Section Area -->
+                        
                         <div class="col-lg-12">
                             <div class="li-section-title">
                                 <h2>
-                                    <span>Clothing</span>
+                                    <span> <?php echo fetched_category(1)['category_name'];?></span>
                                 </h2>
                             </div>
               
