@@ -36,12 +36,16 @@ if(isset($decodedResponse->data->status) && $decodedResponse->data->status === '
     $inv_no=mt_rand(1000,10000);
     $ord_date=date("Y/m/d");
     $quantity= implode(cartquantiny(19));
-    $business= implode(businessCartID());
-    $amount=$_GET['amount'];
+    $amount=$_GET['amount']/100;
+    $order_id= implode(IDorder());
 
-    // inserting an order
-    $addorder=InsertingOrder($ord_date, $inv_no,$amount,$quantity, $email,$business);
+
+    $addorder=InsertingOrder($ord_date, $inv_no,$amount,$quantity, $email);
     if($addorder){
+        $cart=displayingCart(19);
+        foreach ($cart as $item ){
+           InsertingOrderDetails($item['amount'],$item['quantity_nbr'],$item['business_id'],$order_id); 
+        }
         echo "payment successfully received";
     }
     

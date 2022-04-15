@@ -1,7 +1,7 @@
 <?php 
     session_start();
-   // if(isset($_SESSION['id'])){
-    $conn = mysqli_connect('sql6.freemysqlhosting.net','sql6481550',"DwzLIGU18M", 'sql6481550');
+    if(isset($_SESSION['login_id'])){
+    $conn = mysqli_connect('localhost','root', getenv('DATABASEPASSWORD') ?? "", 'Entreconnect');
 
         if(!$conn){
           echo "Database connection error".mysqli_connect_error();
@@ -13,8 +13,8 @@
                 WHERE (sender_id = {$outgoing_id} AND receiver_id = {$incoming_id})
                 OR (sender_id = {$incoming_id} AND receiver_id = {$outgoing_id}) ORDER BY message_id";
         $query = mysqli_query($conn, $sql);
-        if(mysqli_num_rows($query) > 0){
-            while($row = mysqli_fetch_assoc($query)){
+        if(mysqli_num_rows($query) > 0 && $incoming_id!=0){
+            while($row = mysqli_fetch_assoc($query) ){
                 if($row['receiver_id'] === $outgoing_id){
                     $output .= '<div class="chat outgoing">
                                 <div class="details">
@@ -29,12 +29,17 @@
                                 </div>';
                 }
             }
-        }else{
-            $output .= '<div class="text">Search a stakeholder and Start conversation..</div>';
         }
-        echo $output;
-   // }else{
-   //     header("location: ../investor.php");
-    //}
+        else{
+            $output .= '<div class="text">Start conversation..</div>';
+        }
+  
+    echo $output;
+}
+  
+else{
+     echo '<div class="text">Session expired..</div>';
+}
+
 
 ?>

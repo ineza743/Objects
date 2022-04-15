@@ -27,6 +27,11 @@ class Product extends Connection{
 		return $this->fetchOne("select * from product where product_id='$product_id'");
 	}
 	
+	
+	function fetch_Businessproduct($business_id){
+		return $this->fetch("select * from product where business_id='$business_id'");
+	}
+
 	function fetch_product_cat($category_id){
 		return $this->fetchOne("select * from product where category_id='$category_id'");
     }

@@ -5,19 +5,21 @@ require("../controller/cart.php");
     $ipaddress = $_GET['ipadd'];
     $buyer_id = $_GET['bid'];
     $quantity = $_GET['quantity'];
+    $price = implode(individualAmount($prodid));
+    $business_id = implode(IDbusiness($prodid));
   
     
         $onCart = SelectingOne($prodid, $buyer_id);
         if ($onCart){
             $quantity=$onCart['quantity_nbr']+1;
-            updatingCart($buyer_id, $prodid, $quantity);
+            updatingCart($buyer_id, $prodid, $quantity,$quantity * $price);
             
             echo "<script>
             alert('Product added to cart Successfully');
             window.location.href = '../view/public.php';
             </script>";
         }else{
-            $insert = CartInserting($buyer_id, $prodid, $ipaddress, $quantity);
+            $insert = CartInserting($buyer_id, $prodid, $ipaddress, $quantity,$price,$business_id);
 
             if ($insert){
                 echo "<script>

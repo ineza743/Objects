@@ -5,9 +5,9 @@ require_once("../database/connection.php");
 class Cart extends Connection
 {
     //cart insertion
-    public function CartInsertion($buyer_id, $product_id, $ip_address, $quantity){
-        return $this->query("insert into cart(buyer_id, product_id, ip_address, quantity_nbr) 
-        values('$buyer_id', '$product_id', '$ip_address', '$quantity')");
+    public function CartInsertion($buyer_id, $product_id, $ip_address, $quantity, $amount, $business_id){
+        return $this->query("INSERT into cart(buyer_id, product_id, ip_address, quantity_nbr, amount,business_id) 
+        values('$buyer_id', '$product_id', '$ip_address', '$quantity', '$amount', '$business_id')");
     }
 
 
@@ -17,35 +17,47 @@ class Cart extends Connection
         return $this->fetchOne($select);
     }
 
+    //deleting product added to cart by a buyer
+    public function deletingOne($product_id){
+        return $this->query("delete from cart where product_id = '$product_id'");
+
+    }
+
 
     //cart by buyer's id
     public function BuyerCart($buyer_id){
-        $select = "SELECT `cart`.`product_id`, `cart`.`buyer_id`, `cart`.`quantity_nbr`, `product`.`product_name`, `product`.`price`, `product`.`picture`, `product`.`information` FROM `cart`
+        $select = "SELECT * FROM `cart`
         JOIN `product` on (`cart`.`product_id` = `product`.`product_id`)
         WHERE `cart`.`buyer_id` = '$buyer_id'";
         return $this->fetch($select);
     }
 
-        //get business's id
-        public function businessCart(){
-            $select = "SELECT `product`.`business_id` FROM `product`
-            JOIN `cart` on (`cart`.`product_id` = `product`.`product_id`)";
-            return $this->fetchOne($select);
-        }
-
 
 
     //updating the cart
-    public function Cartupdate($buyer_id, $product_id, $quantity_nbr){
-        $update = "UPDATE `cart` SET `quantity_nbr`='$quantity_nbr' WHERE `buyer_id`='$buyer_id' AND `product_id`='$product_id'";
+    public function Cartupdate($buyer_id, $product_id, $quantity_nbr, $amount){
+        $update = "UPDATE `cart` SET `quantity_nbr`='$quantity_nbr', `amount`='$amount'
+         WHERE `buyer_id`='$buyer_id' AND `product_id`='$product_id'";
         return $this->query($update);
     }
 
-      //Inserting into orders
-      public function InsertOrder( $date, $reference,$amount,$quantity, $buyer_email,$business_id){
-        return $this->query("INSERT INTO product_order( porder_date, reference_nbr, amount,quantity,buyer_email,business_id) 
-        VALUES ('$date', '$reference', '$amount','$quantity','$buyer_email','$business_id') ");
+    // get the order id entered
+    public function getOrderID(){
+        $order = "SELECT max(Porder_id)+1 FROM product_order";
+        return $this->fetchOne($order);
     }
+
+      //Inserting into orders
+      public function InsertOrder( $date, $reference,$amount,$quantity, $buyer_email){
+        return $this->query("INSERT INTO product_order( porder_date, reference_nbr, amount,quantity,buyer_email) 
+        VALUES ('$date', '$reference', '$amount','$quantity','$buyer_email') ");
+    }
+
+          //Inserting into order details
+          public function InsertOrderDetails($Pamount,$Pquantity,$business_id, $order_id){
+            return $this->query("INSERT INTO order_details(Pamount,Pquantity,business_id,order_id) 
+            VALUES ('$Pamount','$Pquantity','$business_id','$order_id') ");
+        }
 
     
     //deleting cart
@@ -61,6 +73,7 @@ class Cart extends Connection
         return $this->fetchOne($total);
     }
 
+  
         //calculating the quantity on cart
         public function quantityCart($buyer_id){
             $total="SELECT SUM(`quantity_nbr`) as quantity
@@ -68,12 +81,58 @@ class Cart extends Connection
             return $this->fetchOne($total);
         }
 
+
+   //calculating daily quantities
+   public function dailyquantities($business_id){
+    $total="SELECT SUM(Pquantity) 
+    FROM order_details Join product_order on(order_details.order_id=product_order.Porder_id) WHERE order_details.business_id = $business_id AND porder_date = CURRENT_DATE()";
+    return $this->fetchOne($total);
+}
+       
+
     //calculating daily sales
     public function dailysales($business_id){
-        $total="SELECT SUM(amount) 
-        FROM product_order WHERE business_id = $business_id AND porder_date = CURRENT_DATE()";
+        $total="SELECT SUM(Pamount) 
+        FROM order_details Join product_order on(order_details.order_id=product_order.Porder_id) WHERE order_details.business_id = $business_id AND porder_date = CURRENT_DATE()";
         return $this->fetchOne($total);
     }
+
+          //calculating the tprice on cart by item
+          public function getprice($product_id){
+            $price="SELECT product.price
+            FROM  product WHERE 
+            product_id ='$product_id'";
+            return $this->fetchOne($price);
+        }
+
+        
+          //calculating the total amount on cart by item
+          public function getBusinessID($product_id){
+            $ID="SELECT product.business_id
+            FROM  product WHERE 
+            product_id ='$product_id'";
+            return $this->fetchOne($ID);
+        }
+
+        //calculating sales by category
+        public function getexpensivePERcategory($business_id){
+            $ID="SELECT category.category_name, sum(product.price)
+            FROM  product JOIN category on(category.category_id=product.category_id) WHERE 
+            product.business_id ='$business_id' group by category.category_name";
+            return $this->fetch($ID);
+        }
+
+            //calculating weekly sales chart
+            public function weeklysales($business_id){
+            $chart1=" SELECT sum(order_details.Pamount), DAYNAME(product_order.porder_date)
+             from product_order join order_details 
+            ON(product_order.Porder_id = order_details.order_id)
+            where order_details.business_id='$business_id'
+             AND product_order.porder_date > now() - interval 1 week
+             group by product_order.porder_date  ";
+            return $this->fetch($chart1);
+        }
+
 }
 
 ?>

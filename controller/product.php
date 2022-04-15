@@ -10,7 +10,7 @@ function added_product($business_id,$year, $product_name, $category_id,$price,$p
 }
 
 
-function deleted_product_($product_id){
+function deleted_product($product_id){
     $prod = new Product();
     return $prod->deleting_product($product_id);
 }
@@ -30,6 +30,12 @@ function fetched_product($id){
     $prod = new Product();
     return $prod->fetchOne($id);
 }
+
+function fetched_Businessproduct($id){
+    $prod = new Product();
+    return $prod->fetch_Businessproduct($id);
+}
+
 
 
 //insytances for category

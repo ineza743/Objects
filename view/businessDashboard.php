@@ -1,4 +1,6 @@
 <?php
+
+ini_set('display_errors','Off'); //supress some unneeded warnings
 session_start();
 $login_id = $_SESSION['login_id']; //current businesses id
 
@@ -7,6 +9,30 @@ require('../controller/cart.php');
 $investors=implode(total_investor()); //total number of investors
 $incubators=implode(total_incubator());  //total number of incubators
 $sales=implode(sales($login_id));  //total number of incubators
+$dailysoldproducts = implode(dailyquantitySold($login_id));
+$chart1 = weeklysalesChart($login_id);
+$chart2 = saleschart($login_id);
+
+ 
+$name = array();
+$price = array();
+foreach($chart2 as $chart) {
+ $name[] = $chart['category_name'];
+ $price[] = $chart['sum(product.price)'];
+}
+$category_name = json_encode( $name );
+$amount = json_encode( $price );
+
+
+
+$day = array();
+$total = array();
+foreach($chart1 as $chart) {
+  $total[] = $chart['sum(order_details.Pamount)'];
+  $day[] = $chart['DAYNAME(product_order.porder_date)'];
+}
+$days = json_encode( $day );
+$Dailysales = json_encode( $total );
 ?>
 
 
@@ -96,8 +122,8 @@ $sales=implode(sales($login_id));  //total number of incubators
                 <i class="material-icons opacity-10">person</i>
               </div>
               <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">daily sales (GHC)</p>
-                <h4 class="mb-0"><?php echo $sales;?></h4>
+                <p class="text-sm mb-0 text-capitalize">Today's sales (GHC)</p>
+                <h4 class="mb-0"><?php echo intval($sales);?></h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -117,7 +143,7 @@ $sales=implode(sales($login_id));  //total number of incubators
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Available investors</p>
-                <h4 class="mb-0"><?php echo $investors;?></h4>
+                <h4 class="mb-0"><?php echo intval($investors);?></h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -139,7 +165,7 @@ $sales=implode(sales($login_id));  //total number of incubators
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Available incubator</p>
-                <h4 class="mb-0"><?php echo $incubators;?></h4>
+                <h4 class="mb-0"><?php echo intval($incubators);?></h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -160,8 +186,8 @@ $sales=implode(sales($login_id));  //total number of incubators
                 <i class="material-icons opacity-10">person</i>
               </div>
               <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Weekly income</p>
-                <h4 class="mb-0">2,300</h4>
+                <p class="text-sm mb-0 text-capitalize">Today's Sold products</p>
+                <h4 class="mb-0"><?php echo intval($dailysoldproducts) ?></h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -187,11 +213,11 @@ $sales=implode(sales($login_id));  //total number of incubators
             </div>
             <div class="card-body">
               <h6 class="mb-0 "> Product/sales </h6>
-              <p class="text-sm "> (<span class="font-weight-bolder">+15%</span>) increase in today sales. </p>
+              <p class="text-sm ">  The above chart compares how your products by category are sold today.</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
                 <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm"> updated 4 min ago </p>
+                <p class="mb-0 text-sm"> updated chart </p>
               </div>
             </div>
           </div>
@@ -208,12 +234,12 @@ $sales=implode(sales($login_id));  //total number of incubators
               </div>
             </div>
             <div class="card-body">
-              <h6 class="mb-0 ">Monthly sales</h6>
-              <p class="text-sm ">Total sales generated every month of the year/p>
+              <h6 class="mb-0 ">Weekly sales</h6>
+              <p class="text-sm ">The above is graph of your daily sales for the past 7 days</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
                 <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm"> currency= cedis </p>
+                <p class="mb-0 text-sm"> updated chart </p>
               </div>
             </div>
           </div>
@@ -253,7 +279,7 @@ $sales=implode(sales($login_id));  //total number of incubators
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ["Jan", "Feb", "March", "April", "May", "June", "July","Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: <?php echo $days ?>,
         datasets: [{
           label: "Sales",
           tension: 0.4,
@@ -261,7 +287,7 @@ $sales=implode(sales($login_id));  //total number of incubators
           borderRadius: 4,
           borderSkipped: false,
           backgroundColor: "rgba(255, 255, 255, .8)",
-          data: [50, 20, 10, 22, 50, 10, 40, 10, 20, 60, 23, 13],
+          data: <?php echo $Dailysales ?>,
           maxBarThickness: 6
         }, ],
       },
@@ -334,9 +360,9 @@ $sales=implode(sales($login_id));  //total number of incubators
     new Chart(ctx2, {
       type: "line",
       data: {
-        labels: ["Laptops", "Fruits", "airpods", "jewelleries"],
+        labels: <?php echo $category_name ?>,
         datasets: [{
-          label: "Mobile apps",
+          label: "daily sales",
           tension: 0,
           borderWidth: 0,
           pointRadius: 5,
@@ -347,7 +373,7 @@ $sales=implode(sales($login_id));  //total number of incubators
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [50, 200, 230, 500],
+          data: <?php echo $amount ?>,
           maxBarThickness: 6
 
         }],

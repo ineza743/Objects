@@ -3,8 +3,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 
 <?php
 require('../controller/product.php');
@@ -250,9 +248,9 @@ a:hover {
                  >
                
                 </div>
-                    <div class="col">&dollar; <?=$product['price'];?><span class="close"></span></div>
-                    <div><a href="#" style=" color: #E34724;" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a></div>
-                 
+                    <div class="col">&dollar; <?=$product['price']*$product['quantity_nbr'];?><span class="close"></span></div>
+                    <div>
+                    <a href="javascript:void(0)" style=" color: #E34724;" class="delete" data-id='<?=$product['product_id']; ?>'><i class="material-icons">&#xE872;</i></a></div>
                 </div>
             </div>
    
@@ -266,7 +264,7 @@ a:hover {
             </div>            
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                 <div class="col">TOTAL (GHC)</div>
-                <input class="col" id="total" name="total" value= <?=$Total["total"];?>  required disabled/>
+                <input class="col" id="total" name="total" value= <?=intval($Total["total"]);?>  required disabled/>
 
             </div>
             
@@ -302,6 +300,34 @@ a:hover {
 
   </div>
 </nav>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+      
+<script type="text/javascript">
+$(function() {
+$(".delete").click(function(){
+var element = $(this);
+var id = $(this).data('id');
+if(confirm("Are you sure you want to delete this item?"))
+{
+ $.ajax({
+   type: 'POST',
+   data: { id: id },
+   dataType: "html",
+   url: 'delete.php',
+
+   success: function(data){
+    location.reload();
+    jQuery('#id').fadeOut('slow');
+
+ }
+});
+ }
+ 
+return false;
+});
+});
+</script>
 
 
 <script src="https://js.paystack.co/v1/inline.js"></script>

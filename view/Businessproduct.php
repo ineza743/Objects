@@ -1,6 +1,9 @@
 <?php
 require('../controller/product.php');
-$Todisplay=fetched_products();
+ini_set('display_errors','Off'); //supress some unneeded warnings
+session_start();
+$login_id = $_SESSION['login_id']; //current businesses id
+$Todisplay=fetched_Businessproduct($login_id);
 
 
 
@@ -22,6 +25,8 @@ $Todisplay=fetched_products();
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <link id="pagestyle" href="./assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+
 </head>
 
 
@@ -36,7 +41,7 @@ $Todisplay=fetched_products();
                     <a href="../index.php" ><img src="images/logo2.JPG" width="90" alt="logo"></a>
                         <li  ><a href="./businessDashboard.php"><i style="color:#e11584" class="fa fa-dashboard" ></i><span >Dashboard</span></a></li>
                         <li class="active" ><a href="Businessproduct.php"><i style="color:#e11584"  class="fa fa-product-hunt" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Products</span></a></li>
-                        <li><a href="messages.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
+                        <li><a href="../messaging/chat.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
 
                         <li ><a href="investors.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Investors</span></a></li>
                         <li><a href="incubators.php"><i style="color:#e11584" class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Incubators</span></a></li>
@@ -96,7 +101,7 @@ $Todisplay=fetched_products();
                     </div>
                     <h6 class="text-success">Delivery available</h6>
                     <div class="d-flex flex-column mt-4"><button class="btn btn-outline-primary btn-sm" type="button">Edit</button>
-                    <button class="btn btn-danger btn-sm mt-2" type="button">Delete</button></div>
+                    <button class="btn btn-danger btn-sm mt-2"  id="delete"  ><a href="#" data-id='<?=$product['product_id']; ?>' class="delete">Delete</a></button></div>
                 </div>
             </div>
                   <?php } ?>
@@ -133,7 +138,36 @@ $Todisplay=fetched_products();
   </main>
 
 
+  <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
+
+      
+<script type="text/javascript">
+$(document).ready(function(){
+$(".delete").click(function(){
+var id = $(this).data('id');
+alert(id);
+if(confirm("Are you sure you want to delete this item?"))
+{
+ $.ajax({
+   type: 'POST',
+   url: 'delete.php',
+   data: { id: id },
+
+   success: function(){
+ }
+});
+  $(this).parents(".show").animate({ backgroundColor: "blue" }, "slow")
+  .animate({ opacity: "hide" }, "slow");
+ }
+ 
+return false;
+});
+});
+</script>
+
 
 </body>
+
+
 
 </html>
