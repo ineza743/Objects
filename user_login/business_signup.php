@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,8 @@ body {
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
 }
+
+
 .form-control {
 	height: 40px;
 	box-shadow: none;
@@ -130,7 +133,7 @@ body {
 	  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
 	</div>
 	
-<form  action="" enctype="multipart/form-data" method="post">
+<form  action="" enctype='multipart/form-data' method="post">
 		<h2>Register</h2>
 		<p class="hint-text">Create your Business account. </p>
         <div class="form-group">
@@ -143,9 +146,15 @@ body {
 		<div class="row">
 		<div class="col"><input type="email" class="form-control" name="email" id="email" placeholder="Email*" required="required"></div>
 		<div class="col"><input type="text" class="form-control" name="phone" id="phone" placeholder="phone number*" required="required" ></div>
-
 			</div>
 		</div>
+
+		<div class="form-group">
+		<div class="row">
+		<div class="col"><input name="userfile" id="userfile" type="file" class="form-control"> </div>	
+		<div class="col"><input type="text" class="form-control" name="Padd" id="Padd" placeholder="Your address*" required="required"> </div>		
+			</div>
+			</div>
 
 		<div class="form-group">
 		<div class="row">
@@ -171,18 +180,17 @@ body {
 
 		<div class="form-group">
 			<div class="row">
-				<div class="col"><input type="text" class="form-control" name="linkedin" id="linkedin" placeholder="linkedin link" required="required"></div>
-				<div class="col"><input type="text" class="form-control" name="instagram" id="instagram" placeholder="instagram link" required="required"></div>
-				<div class="col"><input type="text" class="form-control" name="twitter" id="twitter" placeholder="twitter link" required="required"></div>
+			<div class="col"><input type="text" class="form-control" name="document" id="document" placeholder="Link to any business document*" required="required"></div>
+
+				<div class="col"><input type="text" class="form-control" name="linkedin" id="linkedin" placeholder="linkedin link" ></div>
 
 			</div>        	
         </div>
 
 		<div class="form-group">
 		<div class="row">
-		<div class="col"><input type="text" class="form-control" name="details" id="details" placeholder="Any Other details" required="required">			</div>
-		<div class="col"><input type="file" class="form-control" name="document" id="document" tittle="picture" >			
-			</div> </div>
+		<div class="col"><input type="text" class="form-control text-center" name="details" id="details" placeholder="Business description..." required="required">			</div>
+		 </div>
 			</div>
 
 		<div class="form-group">
@@ -203,43 +211,97 @@ body {
 </div>
 
 
+<script type="text/javascript">
+        $(document).ready(function (e) {
+            $("#userfile").on('change',(function(e) {
+			   var file_data = $("#userfile").prop("files")[0];
+			   alert(file_data);
 
-<script>
-$(document).ready(function() {
+			   var form_data = new FormData();	
+			   
+			   alert(form_data);
+			   form_data.append('file', file_data);
+			   
+			   alert(form_data);
+                e.preventDefault();
+                $.ajax({
+                    url: "save.php",
+                    type: "POST",
+                    dataType: 'text',
+                    data: form_data,
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+               
+                   });
+            }));
+    
+ 
+	  
+	
 
 	$('#signup').on('click', function() {
 		$("#signup").attr("disabled", "disabled");
-		var name = $('#first_name').val();
+
+		var first_name = $('#first_name').val();
+		var last_name = $('#last_name').val();
 		var email = $('#email').val();
+		var Padd = $('#Padd').val();
+		var address = $('#address').val();
 		var phone = $('#phone').val();
-		var city = $('#details').val();
+		var occupation = $('#occupation').val();
+		var role = $('#role').val();
+		var business = $('#business').val();
+		var linkedin = $('#linkedin').val();
+		var document = $('#document').val();
+		var details = $('#details').val();
 		var password = $('#password').val();
-		if(name!="" && email!="" && phone!="" && password!="" ){
+		var confirm_password = $('#confirm_password').val();
+
+		if(first_name!="" && last_name!="" && email!="" && Padd!="" && address!="" && phone!="" && occupation!="" && role!="" && business!="" && document!="" && details!="" && password!="" && confirm_password!="" ){
 			$.ajax({
 				url: "save.php",
 				type: "POST",
 				data: {
 					type: 1,
-					name: name,
+					first_name: first_name,
+					last_name: last_name,
 					email: email,
+					Padd: Padd,
+					address: address,
 					phone: phone,
-					city: city,
-					password: password						
+					linkedin: linkedin,
+					occupation: occupation,
+					role: role,
+					business:business,
+					document: document,
+					details: details,
+					password: password,
+					confirm_password: confirm_password						
 				},
 				cache: false,
 				success: function(dataResult){
+					alert(dataResult);
 					try {
 							var dataResult = JSON.parse(dataResult);
 							if(dataResult.statusCode==200){
-							location.href = "business_login.php";	
-								}
+								$("#success").show();
+								$('#success').html('Congratulations! Your profile is being reviewed you will receive confirmation to login shortly via email ');
+                				window.scrollTo({ top: 0, behavior: 'smooth' });
+								window.setTimeout(function(){
+									window.location.href = "../index.php";	
+
+								}, 9000);
+							}
 							else if(dataResult.statusCode==201){
 								$("#error").show();
 								$('#error').html('Email ID already exists !');
+								window.scrollTo({ top: 0, behavior: 'smooth' });
 							}
 						} catch (err) {
 							$("#error").show();
 								$('#error').html('An error occured !');
+								window.scrollTo({ top: 0, behavior: 'smooth' });
 						}
 					
 				}
@@ -251,8 +313,8 @@ $(document).ready(function() {
 	});
 
 });
-</script>
 
+</script>
 <br><br>
 <?php include ('../header/footer.php');?> 
 </html>

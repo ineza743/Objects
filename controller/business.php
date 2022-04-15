@@ -3,9 +3,15 @@
 require('../model/business.php');
 
 //adding businesses
-function adding_business($f_name, $l_name,$email,$phone,$bussiness_name,$role,$address,$business_type,$linkedin,$instagram,$twitter,$details,$picture,$password){
+function adding_business($first_name,$last_name,$email,$phone,$occupation,$role,$address,$business,$linkedin,$document,$details,$FileDestination,$password,$Padd){
     $bus = new business();
-    return $bus->add_business($f_name, $l_name,$email,$phone,$bussiness_name,$role,$address,$business_type,$linkedin,$instagram,$twitter,$details,$picture,$password);
+    return $bus->add_business($first_name,$last_name,$email,$phone,$occupation,$role,$address,$business,$linkedin,$document,$details,$FileDestination,$password,$Padd);
+}
+
+//duplicate emails
+function duplicate($email){
+    $bus = new business();
+    return $bus->duplicate_business($email);
 }
 
 //selecting businesses
