@@ -2,7 +2,7 @@
 /** file to create the necassary classes and functions*/
 
 //include the database file
-require('../database/connection.php');
+require_once('../database/connection.php');
 
 //extend the class connection
 class Opportunities extends Connection{

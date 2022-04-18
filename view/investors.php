@@ -9,6 +9,7 @@ require('../controller/supporter.php');
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-colvis-1.6.1/b-html5-1.6.1/b-print-1.6.1/r-2.2.3/datatables.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <body class="home">
+    
 <div class="container-fluid display-table">
         <div class="row display-table-row">
             <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
@@ -62,7 +63,7 @@ require('../controller/supporter.php');
 
             <table class="table table-bordered table-hover" id="table_id">
 
-                <thead>
+            <thead style="background: #e11584; color:white;">
                     
                     <tr>
                         
@@ -71,7 +72,7 @@ require('../controller/supporter.php');
 							<th>address</th>
 							<th>phone</th>
 							<th>occupation</th>
-							<th>support business type</th>
+							<th>business type</th>
                                 <th>View</th>
                                  <th>Message</th>
 

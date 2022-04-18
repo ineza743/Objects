@@ -14,6 +14,18 @@ function duplicate($email){
     return $bus->duplicate_business($email);
 }
 
+//select password
+function password($email){
+    $bus = new business();
+    return $bus->select_password($email);
+}
+
+//duplicate emails
+function statusUpdate($status, $business_email){
+    $bus = new business();
+    return $bus->update_status($status,$business_email);
+}
+
 //selecting businesses
 function selecting_businesses(){
     $bus = new business();
@@ -36,9 +48,9 @@ function deleting_business($id){
 }
 
 //updating investor
-function updating_business($business_id,$f_name, $l_name,$email,$phone,$bussiness_name,$role,$address,$business_type,$linkedin,$instagram,$twitter,$details,$picture){
+function updating_business($business_id,$f_name, $l_name,$email,$phone,$bussiness_name,$role,$address,$business_type,$linkedin,$instagram,$details,$picture){
     $bus = new business();
-    return $bus->update_business($business_id,$f_name, $l_name,$email,$phone,$bussiness_name,$role,$address,$business_type,$linkedin,$instagram,$twitter,$details,$picture);
+    return $bus->update_business($business_id,$f_name, $l_name,$email,$phone,$bussiness_name,$role,$address,$business_type,$linkedin,$instagram,$details,$picture);
 
 }
 

@@ -18,25 +18,23 @@ class Connection{
 		return true;
 	}
 
-    //creating a querry
 	function query($query){
 		if($this->connection() == false){
-			return false; //connection failed
+			return false; 
 		}
 
-		//if connection is established, do the querry
 		$this->results = mysqli_query($this->db, $query);
 		if($this->results !=true){
 			return false;
 		}
-		return true; //successful querry
+		return true; 
 
 	}
 
 	// selecting
 	function fetch($query){
 		if($this->query($query)) {
-			return mysqli_fetch_all($this->results, MYSQLI_ASSOC); //return all rows
+			return mysqli_fetch_all($this->results, MYSQLI_ASSOC); 
 		}
 		return false;
 		
@@ -45,11 +43,10 @@ class Connection{
 	// selecting single item
 	function fetchOne($query){
 		if($this->query($query)) {
-			return mysqli_fetch_assoc($this->results); //return one row
+			return mysqli_fetch_assoc($this->results); 
 		}
 		return false;
 	}
-
 
 }
 

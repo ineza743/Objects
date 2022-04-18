@@ -1,6 +1,6 @@
 <?php
 
-require('../database/connection.php');
+require_once('../database/connection.php');
 
 
 class supporter extends Connection{
@@ -22,7 +22,6 @@ class supporter extends Connection{
 	function select_investor($email){
 		return $this->fetchOne("select * from investor where email='$email'");
 	}
-
 	
 	//deleting a investor
 	function delete_investor($Sid){
@@ -35,9 +34,6 @@ class supporter extends Connection{
         address='$address', phone='$phone', occupation='$occupation', business_type='$business_type', document='$document', password='$password', details='$details'
         where investor_id = '$investor_id'");
 	}
-
-
-
 
 	/**Incubator */
 

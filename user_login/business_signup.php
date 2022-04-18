@@ -168,7 +168,7 @@ body {
 		<div class="row">
 		<div class="col"><input type="text" class="form-control" name="address" id="address" placeholder="business address*" required="required"></div>
 		<div class="col"><select class="form-control" placeholder="businesses category" name="business" id="business" >
-			<option value="Not specific">--businesses type--</option>
+			<option value="Idea stage">--businesses type--</option>
 			<option value="Ideation stage">Ideation stage</option>
 			<option value="Growth">Growth</option>
 			<option value="Maturity">Maturity</option>
@@ -215,14 +215,11 @@ body {
         $(document).ready(function (e) {
             $("#userfile").on('change',(function(e) {
 			   var file_data = $("#userfile").prop("files")[0];
-			   alert(file_data);
 
 			   var form_data = new FormData();	
 			   
-			   alert(form_data);
 			   form_data.append('file', file_data);
 			   
-			   alert(form_data);
                 e.preventDefault();
                 $.ajax({
                     url: "save.php",
@@ -281,7 +278,6 @@ body {
 				},
 				cache: false,
 				success: function(dataResult){
-					alert(dataResult);
 					try {
 							var dataResult = JSON.parse(dataResult);
 							if(dataResult.statusCode==200){
@@ -296,6 +292,11 @@ body {
 							else if(dataResult.statusCode==201){
 								$("#error").show();
 								$('#error').html('Email ID already exists !');
+								window.scrollTo({ top: 0, behavior: 'smooth' });
+							}
+							else if(dataResult.statusCode==203){
+								$("#error").show();
+								$('#error').html('Password and confirm password do not match');
 								window.scrollTo({ top: 0, behavior: 'smooth' });
 							}
 						} catch (err) {

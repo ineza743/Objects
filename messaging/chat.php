@@ -31,6 +31,7 @@ session_start();
   }
   ?>
    
+   
 <div style="margin-left:-18.5%" class="container-fluid display-table">
 <div style="padding-left:30%;padding-right:40%;">
 
@@ -48,7 +49,7 @@ session_start();
                        <hr>
                        <br>
                        <br>
-                        <li><a href="#"><i style="color:#e11584"  class="bi bi-backspace-reverse" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
+                       <li><a href="../user_login/logout.php"><i style="color:#e11584"  class="fa fa-sign-out" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
                         <br>
                     </ul>
                 </div>

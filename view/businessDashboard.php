@@ -8,7 +8,7 @@ require('../controller/supporter.php');
 require('../controller/cart.php');
 $investors=implode(total_investor()); //total number of investors
 $incubators=implode(total_incubator());  //total number of incubators
-$sales=implode(sales($login_id));  //total number of incubators
+$sales=implode(sales($login_id));  //total number of sales
 $dailysoldproducts = implode(dailyquantitySold($login_id));
 $chart1 = weeklysalesChart($login_id);
 $chart2 = saleschart($login_id);
@@ -75,41 +75,43 @@ $Dailysales = json_encode( $total );
   <link id="pagestyle" href="./assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
 </head>
 
-<body class="g-sidenav-show  bg-gray-200">
-  
-  
-<body class="home">
+
+    <!-- side bar -->
+    <body class="g-sidenav-show  bg-gray-200">
     <div class="container-fluid display-table">
         <div class="row display-table-row">
-            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+        <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
         
-                <div class="navi">
-                    <ul>
-                    <a href="../index.php" ><img src="images/logo2.JPG" width="90" alt="logo"></a>
-                        <li class="active" ><a href="./businessDashboard.php"><i style="color:#e11584" class="fa fa-dashboard" ></i><span >Dashboard</span></a></li>
-                        <li><a href="Businessproduct.php"><i style="color:#e11584"  class="fa fa-product-hunt" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Products</span></a></li>
-                        <li><a href="messages.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
+        <div class="navi">
+            <ul>
+            <a href="../index.php" ><img src="images/logo2.JPG" width="90" alt="logo"></a>
+                <li class="active"><a href="./businessDashboard.php"><i style="color:#e11584" class="fa fa-dashboard" ></i><span >Dashboard</span></a></li>
+                <li ><a href="Businessproduct.php"><i style="color:#e11584"  class="fa fa-product-hunt" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Products</span></a></li>
+                <li><a href="../messaging/chat.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
 
-                        <li ><a href="investors.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Investors</span></a></li>
-                        <li><a href="incubators.php"><i style="color:#e11584" class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Incubators</span></a></li>
-                       <hr>
-                                         <br>
-                       <br>
-                        <li><a href="#"><i style="color:#e11584"  class="fa fa-sign-out" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
-                        <br>
-                    </ul>
-                </div>
-            </div>
+                <li ><a href="investors.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Investors</span></a></li>
+                <li><a href="incubators.php"><i style="color:#e11584" class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Incubators</span></a></li>
+               <hr>
+                                 <br>
+               <br>
+               <li><a href="../user_login/logout.php"><i style="color:#e11584"  class="fa fa-sign-out" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
+                <br>
+            </ul>
+        </div>
+    </div>
             <div class="col-md-10 col-sm-11 display-table-cell v-align">
-               
-                
+
+
+
+<link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+   
 
 
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <br><br>
   <span style="color:black; font-size: 40px">Business Dashboard</span>
-  <hr>
 
   <div class="container-fluid py-4">
       <div class="row mt-3">
@@ -126,7 +128,7 @@ $Dailysales = json_encode( $total );
                 <h4 class="mb-0"><?php echo intval($sales);?></h4>
               </div>
             </div>
-            <hr class="dark horizontal my-0">
+            <hr style="background:#e11584" class="dark horizontal my-0">
             <div class="card-footer p-3">
       
 
@@ -146,7 +148,7 @@ $Dailysales = json_encode( $total );
                 <h4 class="mb-0"><?php echo intval($investors);?></h4>
               </div>
             </div>
-            <hr class="dark horizontal my-0">
+            <hr style="background:#e11584" class="dark horizontal my-0">
             <div class="card-footer p-3">
             <div class="text-center">
 
@@ -168,7 +170,8 @@ $Dailysales = json_encode( $total );
                 <h4 class="mb-0"><?php echo intval($incubators);?></h4>
               </div>
             </div>
-            <hr class="dark horizontal my-0">
+            <hr style="background:#e11584" class="dark horizontal my-0">
+
             <div class="card-footer p-3">
             <div class="text-center">
               </div>
@@ -190,7 +193,7 @@ $Dailysales = json_encode( $total );
                 <h4 class="mb-0"><?php echo intval($dailysoldproducts) ?></h4>
               </div>
             </div>
-            <hr class="dark horizontal my-0">
+            <hr style="background:#e11584" class="dark horizontal my-0">
             <div class="card-footer p-3">
       
 

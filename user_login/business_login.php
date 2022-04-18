@@ -5,11 +5,16 @@ session_start();
 if (isset($_POST['signin'])) {
 	$username = $_POST['username'];
 	$password =$_POST['password'];
-    
+    $confirm_password = implode(password($username));
 	$business = selecting_business($username);
     
 	if (empty($business)) {
         echo ("<script>alert('Unknown email!'); window.location.href = 'business_login.php';</script>");}
+        
+
+    else if(!password_verify($password, $confirm_password)){
+        echo ("<script>alert('Incorrect password!'); window.location.href = 'business_login.php';</script>");}
+    
 
     else  {
         $_SESSION['login_id'] = $business['business_id'];
