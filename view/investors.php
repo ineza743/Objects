@@ -90,7 +90,7 @@ require('../controller/supporter.php');
         <td><?php echo $investor['phone'] ?></td>
         <td><?php echo $investor['occupation'] ?></td>
         <td><?php echo $investor['business_type'] ?></td>
-         <td><a href="details.php?email=<?php echo $investor['email'];?>"><span class="glyphicon glyphicon-eye-open"></span></a> </td>
+         <td><a href="../administrator/opportunity.php?email=<?php echo $investor['email'];?>"><span class="glyphicon glyphicon-eye-open"></span></a> </td>
          <td><a href="../messaging/chat.php?id=<?php echo $investor['investor_id'];?>"><span class="glyphicon lyphicon glyphicon-envelope"></span></a> </td>
                     </tr>
                   <?php  $i=$i+1; } ?>

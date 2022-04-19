@@ -12,12 +12,13 @@ class Opportunities extends Connection{
 	}
     
     function fetch_opportunities(){
-		return $this->fetch("select * from investor_opportunity");
+		return $this->fetch("select * from investor_opportunity ORDER BY opportunity_id DESC");
 	}
 	
 	function fetch_opportunity($opportunity_id){
-		return $this->fetchOne("select * from investor_opportunity where opportunity_id='$opportunity_id' order by deadline DESC");
-    }
+		return $this->fetchOne("select * from investor_opportunity where opportunity_id='$opportunity_id' ORDER BY opportunity_id DESC");
+	}
+	
 
 }
 

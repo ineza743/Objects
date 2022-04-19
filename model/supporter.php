@@ -8,19 +8,19 @@ class supporter extends Connection{
 	/** investor */
 
 	//adding an investor
-	function add_investor($first_name, $last_name,	$email,	$address,$phone,$occupation,$business_type,$document,$password,$details){
-		return $this->query("insert into investor(first_name,last_name,email,address,phone,occupation,business_type,document,password,details) 
-        values('$first_name', '$last_name',	'$email','$address','$phone','$occupation','$business_type','$document','$password','$details')");
+	function add_investor($first_name, $last_name,	$email,	$address,$phone,$occupation,$business_type,$password,$document,$details){
+		return $this->query("insert into investor(first_name,last_name,email,address,phone,occupation,business_type,password,document,details) 
+        values('$first_name', '$last_name',	'$email','$address','$phone','$occupation','$business_type','$password','$document','$details')");
 	}
 
 	//selecting all investors
 	function select_investors(){
-		return $this->fetch("select * from investor");
+		return $this->fetch("select * from investor ORDER BY investor_id DESC");
 	}
 
 	//selecting 1 investors
 	function select_investor($email){
-		return $this->fetchOne("select * from investor where email='$email'");
+		return $this->fetchOne("select * from investor where email='$email' ORDER BY investor_id DESC");
 	}
 	
 	//deleting a investor
@@ -45,12 +45,12 @@ class supporter extends Connection{
 
 	//selecting all incubator
 	function select_incubators(){
-		return $this->fetch("select * from incubator");
+		return $this->fetch("select * from incubator ORDER BY incubator_id DESC");
 	}
 
 	//selecting 1 incubator
 	function select_incubator($email){
-		return $this->fetchOne("select * from incubator where email='$email'");
+		return $this->fetchOne("select * from incubator where email='$email' ORDER BY incubator_id DESC");
 	}
 
 	//deleting a incubator
