@@ -32,32 +32,30 @@ session_start();
   ?>
    
    
-<div style="margin-left:-18.5%" class="container-fluid display-table">
-<div style="padding-left:30%;padding-right:40%;">
-
-            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+<!-- side bar -->
+<body class="g-sidenav-show  bg-gray-200">
+    <div class="container-fluid display-table">
+        <div class="row display-table-row">
+        <div style="position: fixed;left: 0;" class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
         
-                <div class="navi">
-                    <ul>
-                    <a href="../index.php" ><img src="../view/images/logo2.JPG" width="90" alt="logo"></a>
-                        <li><a href="../view/businessDashboard.php"><i style="color:#e11584" class="fa fa-user" ></i><span >Dashboard</span></a></li>
-                        <li><a href="../view/Businessproduct.php"><i style="color:#e11584"  class="fa fa-user" ></i><span class="hidden-xs hidden-sm">Products</span></a></li>
-                        <li class="active"><a href="chat.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
+        <div style="margin-left:10%" class="navi">
+            <ul>
+            <a href="../index.php" ><img src="../view/images/logo2.JPG" width="90" alt="logo"></a>
+                <li ><a href="../view/businessDashboard.php"><i style="color:#e11584" class="fa fa-dashboard" ></i><span >Dashboard</span></a></li>
+                <li ><a href="../view/Businessproduct.php"><i style="color:#e11584"  class="fa fa-product-hunt" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Products</span></a></li>
+                <li class="active"><a href="chat.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
 
-                        <li ><a href="../view/investors.php"><i style="color:#e11584"  class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Investors</span></a></li>
-                        <li><a href="../view/incubators.php"><i style="color:#e11584" class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Incubators</span></a></li>
-                       <hr>
-                       <br>
-                       <br>
-                       <li><a href="../user_login/logout.php"><i style="color:#e11584"  class="fa fa-sign-out" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
-                        <br>
-                    </ul>
-                </div>
-            </div>
-            </div>
-            </div>
- 
-
+                <li ><a href="../view/investors.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Investors</span></a></li>
+                <li ><a href="../view/incubators.php"><i style="color:#e11584" class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Incubators</span></a></li>
+               <hr>
+                                 <br>
+               <br>
+                <li><a href="../user_login/logout.php"><i style="color:#e11584"  class="fa fa-sign-out" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
+                <br>
+            </ul>
+        </div>
+    </div>
+            <div  style="padding-left:20%" class="col-md-10 col-sm-11 display-table-cell v-align">
 
             <?php
              if(isset($_SESSION['login_id'])){
@@ -69,13 +67,13 @@ session_start();
         
         ?>
 
-<div  class="container">
-<div style="margin-left:-18.5%; margin-top:3.5%; margin-right:10.5%" class="messaging">
+<div class="container">
+<div style="margin-left:-18.5%; margin-top:3.5%; margin-right:10.5%; " class="messaging">
       <div class="inbox_msg">
-        <div class="inbox_people">
+        <div style="background:#281f24" class="inbox_people">
           <div class="headind_srch">
             <div class="recent_heading">
-              <h4>Chats</h4>
+              <h4 style="color: #e11584">Chats</h4>
             </div>
             <div class="srch_bar">
               <div class="stylish-input-group">
@@ -95,8 +93,8 @@ session_start();
               <a style="text-decoration: none;color:black" href="?id=<?php echo $row['investor_id'];?>">
                 <div class="chat_img"> <img src=<?php echo $row['document'];?> alt="sunil"> </div>
                 <div class="chat_ib">
-                  <h5><?php echo $row['first_name'], " ",$row['last_name'] ?> <span class="chat_date"><?php echo $row['messagedate'];?></span></h5>
-                  <p><?php echo $row['email'];?></p>
+                  <h5 style="color:white;"><?php echo $row['first_name'], " ",$row['last_name'] ?> <span class="chat_date"><?php echo $row['messagedate'];?></span></h5>
+                  <p style="color:rgb(145, 129, 141)"><?php echo $row['email'];?></p>
                 </div> </a>
 
               </div>
@@ -105,8 +103,8 @@ session_start();
             <?php } } }?>
             
           </div>
-        </div>
-        <div class="mesgs" style="margin-right:-105%">
+        </div >
+        <div class="mesgs" style="margin-right:-105%; padding-left:0;padding-right:0">
     <section style="margin-top:-7%" class="chat-area">
       <header>
         <?php 
@@ -118,7 +116,7 @@ session_start();
           }
         ?>
         <div  class="details">
-          <span style="color: grey; font-size: 25px;">Chatting with <?php echo $row['first_name']. " " . $row['last_name'] ?>...</span>
+          <span style="color: black; font-size: 25px;">Chatting with <?php echo $row['first_name']. " " . $row['last_name'] ?>...</span>
         </div>
       </header>
         <?php } 

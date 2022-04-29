@@ -128,10 +128,7 @@ $Dailysales = json_encode( $total );
                 <h4 class="mb-0"><?php echo intval($sales);?></h4>
               </div>
             </div>
-            <div class="card-footer p-3">
-      
-
-            </div>
+          
           </div>
         </div>
 
@@ -147,11 +144,7 @@ $Dailysales = json_encode( $total );
                 <h4 class="mb-0"><?php echo intval($investors);?></h4>
               </div>
             </div>
-            <div class="card-footer p-3">
-            <div class="text-center">
-
-              </div>
-            </div>
+       
           </div>
         </div>
 
@@ -169,10 +162,7 @@ $Dailysales = json_encode( $total );
               </div>
             </div>
 
-            <div class="card-footer p-3">
-            <div class="text-center">
-              </div>
-            </div>
+        
             </div>
             </div>
      
@@ -190,10 +180,7 @@ $Dailysales = json_encode( $total );
                 <h4 class="mb-0"><?php echo intval($dailysoldproducts) ?></h4>
               </div>
             </div>
-            <div class="card-footer p-3">
-      
-
-            </div>
+    
           </div>
         </div>
         

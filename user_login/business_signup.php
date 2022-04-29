@@ -282,7 +282,7 @@ body {
 							var dataResult = JSON.parse(dataResult);
 							if(dataResult.statusCode==200){
 								$("#success").show();
-								$('#success').html('Congratulations! Your profile is being reviewed you will receive confirmation to login shortly via email ');
+								$('#success').html('Congratulations! User registered');
                 				window.scrollTo({ top: 0, behavior: 'smooth' });
 								window.setTimeout(function(){
 									window.location.href = "../index.php";	

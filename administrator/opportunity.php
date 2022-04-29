@@ -24,7 +24,11 @@ if(isset($_GET['email2'])){
     <title>User details </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="./css/style.css" rel="stylesheet">
+    <link href="../view/css/side.css" rel="stylesheet">
+
 
 </head>
 
@@ -45,76 +49,43 @@ if(isset($_GET['email2'])){
     ********************-->
 
 
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
-    <div id="main-wrapper">
 
-        <!--**********************************
-            Nav header start
-        ***********************************-->
-        <div class="nav-header">
-            <a href="index.html" class="brand-logo">
-                <img class="logo-abbr" src="./images/logo.png" alt="">
-                <img class="logo-compact" src="./images/logo-text.png" alt="">
-                <img class="brand-title" src="./images/logo-text.png" alt="">
-            </a>
+         
+<!-- side bar -->
+    <div class="container-fluid display-table">
+        <div class="row display-table-row">
+        <div style="position: fixed;left: 0;" class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+        
+        <div style="margin-left:10%" class="navi">
+            <ul>
+            <a href="../index.php" ><img src="../view/images/logo2.JPG" width="90" alt="logo"></a>
+                <li ><a href="../view/businessDashboard.php"><i style="color:#e11584" class="fa fa-dashboard" ></i><span >Dashboard</span></a></li>
+                <li ><a href="../view/Businessproduct.php"><i style="color:#e11584"  class="fa fa-product-hunt" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Products</span></a></li>
+                <li><a href="chat.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
 
-            <div class="nav-control">
-                <div class="hamburger">
-                    <span class="line"></span><span class="line"></span><span class="line"></span>
-                </div>
-            </div>
+                <li ><a href="../view/investors.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Investors</span></a></li>
+                <li ><a href="../view/incubators.php"><i style="color:#e11584" class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Incubators</span></a></li>
+               <hr>
+                                 <br>
+               <br>
+                <li><a href="../user_login/logout.php"><i style="color:#e11584"  class="fa fa-sign-out" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
+                <br>
+            </ul>
         </div>
-        <!--**********************************
-            Nav header end
-        ***********************************-->
+    </div>
+            <div style="margin-left:90%" class="col-md-10 col-sm-11 display-table-cell v-align">
 
-        <!--**********************************
-            Header start
-        ***********************************-->
-        <div class="header">
-            <div class="header-content">
-                <nav class="navbar navbar-expand">
-                    <div class="collapse navbar-collapse justify-content-between">
-                        <div class="header-left">
-                            <div class="search_bar dropdown">
-                                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
-                                    <i class="mdi mdi-magnify"></i>
-                                </span>
-                                <div class="dropdown-menu p-0 m-0">
-                                    <form>
-                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
-
-        <!--**********************************
-            Sidebar start
-        ***********************************-->
-       
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
 
         <!--**********************************
             Content body start
         ***********************************-->
-        <div  >
-            <div class="container-fluid">
+        <div >
+            <div >
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4 style="color:#e11584">User's details!</h4>
+                            <h1 style="color:#e11584; text-align:center;font-size: 35px">User's details</h1>
                         </div>
                     </div>
     
@@ -163,8 +134,8 @@ if(isset($_GET['email2'])){
 
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
+                        <div  class="card">
+                            <div  class="card-body">
                                 <div class="profile-statistics">
                                     <div class="text-center mt-4 border-bottom-1 pb-3">
                               
@@ -230,7 +201,7 @@ if(isset($_GET['email2'])){
                                                         <p>The deadline for this opportunity is: <b><?php echo $investor['deadline'] ?> </b>.<br> <?php echo $investor['details'] ?>.<br>The reward for participating is:<b><?php echo $investor['reward'] ?> GHC</b>
                                                     <br> </p>
                                                         <a href="<?php echo $investor['apply'] ?>"><button style="background:#e11584; color:white" class="btn mr-3"><span class="mr-3"><i
-                                                                    class="fa fa-heart"></i></span>Apply</button></a>
+                                                                    class="fa fa-drivers-license-o"></i></span>Apply</button></a>
                                                                     
   
                                                     </div>
@@ -252,6 +223,11 @@ if(isset($_GET['email2'])){
         ***********************************-->
 
 
+
+
+        
+    </div>
+
         <!--**********************************
             Footer start
         ***********************************-->
@@ -260,27 +236,6 @@ if(isset($_GET['email2'])){
                 <p> © <a href="#" target="_blank">EntreConnect</a> 2022</p>
             </div>
         </div>
-        <!--**********************************
-            Footer end
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button start
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button end
-        ***********************************-->
-
-        
-    </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
-
-    <!--**********************************
-        Scripts
-    ***********************************-->
     <!-- Required vendors -->
     <script src="./vendor/global/global.min.js"></script>
     <script src="./js/quixnav-init.js"></script>

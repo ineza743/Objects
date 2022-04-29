@@ -158,16 +158,13 @@ $Todisplay=selecting_businesses();
                                                 <td><?php echo $business['document'] ?></td>
                                                 <td><?php echo $business['linkedin'] ?></td>
                                                 <td>
-                                                    <div class="btn-group">
-                                                        
-                                                    <div class="col">
-                                                    <select style="color:green " type="submit" class="form-control" name="status" id="status" >
+                                                   
+                                                    <select style="color:green" type="submit" name="status" id="status" >
                                                     <option style="color:blue " value="pending"><?php echo $business['status'] ?></option>
                                                     <option style="color:green " value="Approved">Approved</option>
                                                     <option style="color:red " value="Reject">Reject</option>
     
-                                                    </select> </div>
-                                                      </div>
+                                                    </select> 
                                                 </td>
                                                
                                             </tr>

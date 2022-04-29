@@ -177,7 +177,7 @@ $Todisplay=fetched_products(); //fetch all products from the database
                         <div class="col-lg-12">
                             <div class="li-section-title">
                                 <h2>
-                                    <span> <?php echo fetched_category(1)['category_name'];?></span>
+                                    <span> <?php echo fetched_category(2)['category_name'];?></span>
                                 </h2>
                             </div>
               
@@ -406,6 +406,7 @@ $Todisplay=fetched_products(); //fetch all products from the database
               
                     </div>
                 </div>
+                
             </section>
           
             

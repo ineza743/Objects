@@ -1,8 +1,6 @@
-
 <?php
-require('../controller/supporter.php');
+require('../controller/business.php');
 ?>
-
 
 <link href="css/side.css" rel="stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -10,10 +8,10 @@ require('../controller/supporter.php');
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-colvis-1.6.1/b-html5-1.6.1/b-print-1.6.1/r-2.2.3/datatables.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<body class="home">
+
     
-<!-- side bar -->
-<body class="g-sidenav-show  bg-gray-200">
+    <!-- side bar -->
+    <body class="g-sidenav-show  bg-gray-200">
     <div class="container-fluid display-table">
         <div class="row display-table-row">
         <div style="position: fixed;left: 0;" class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
@@ -25,8 +23,8 @@ require('../controller/supporter.php');
                 <li ><a href="Businessproduct.php"><i style="color:#e11584"  class="fa fa-product-hunt" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Products</span></a></li>
                 <li><a href="../messaging/chat.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
 
-                <li ><a href="investors.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Investors</span></a></li>
-                <li class="active"><a href="incubators.php"><i style="color:#e11584" class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Incubators</span></a></li>
+                <li class="active"><a href="investors.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Investors</span></a></li>
+                <li><a href="incubators.php"><i style="color:#e11584" class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Incubators</span></a></li>
                <hr>
                                  <br>
                <br>
@@ -42,7 +40,7 @@ require('../controller/supporter.php');
                         <div class="col-md-7">
                             <nav class="navbar-default pull-center">
                                 <div class="navbar-header">
-                                <h1 >Available Incubators</h1>
+                                <h1 >Available Businesses</h1>
                                 </div>
                             </nav>
                         </div>
@@ -62,22 +60,22 @@ require('../controller/supporter.php');
    <div class="container">
 
 <div >
-    <div  class="card">
+    <div class="card">
 
         <div class="card-body">
 
             <table class="table table-bordered table-hover" id="table_id">
 
-                <thead style="background: #e11584; color:white;">
+            <thead style="background: #e11584; color:white;">
                     
-                    <tr >
-                    <th>N0</th>  
+                    <tr>
+                    <th>N0</th>
                     <th>Name</th>
 							<th>email</th>
 							<th>address</th>
 							<th>phone</th>
 							<th>occupation</th>
-							<th>support business type</th>
+							<th>business type</th>
                                 <th>View</th>
                                  <th>Message</th>
 
@@ -86,19 +84,18 @@ require('../controller/supporter.php');
                 <tbody>
                 <?php
                   $i=1;
-          
-                  $Todisplay=selecting_incubators();
+            $Todisplay=selecting_businesses();
             foreach($Todisplay as $investor){
           ?>
-          <td><?php echo $i ?> </td>
+        <td><?php echo $i ?> </td>
         <td><?php echo $investor['first_name']," ", $investor['last_name'] ?> </td>
         <td><?php echo $investor['email'] ?></td>
         <td><?php echo $investor['address'] ?></td>
         <td><?php echo $investor['phone'] ?></td>
         <td><?php echo $investor['occupation'] ?></td>
         <td><?php echo $investor['business_type'] ?></td>
-         <td><a href="../administrator/opportunity.php?email2=<?php echo $investor['email'];?>"><span class="glyphicon glyphicon-eye-open"></span></a> </td>
-         <td><a href="../messaging/chat.php?id=<?php echo $investor['incubator_id'];?>"><span class="glyphicon lyphicon glyphicon-envelope"></span></a> </td>
+         <td><a href="../administrator/opportunity.php?email=<?php echo $investor['email'];?>"><span class="glyphicon glyphicon-eye-open"></span></a> </td>
+         <td><a href="../messaging/chat.php?id=<?php echo $investor['investor_id'];?>"><span class="glyphicon lyphicon glyphicon-envelope"></span></a> </td>
                     </tr>
                   <?php  $i=$i+1; } ?>
 
@@ -106,7 +103,6 @@ require('../controller/supporter.php');
 
                 </tbody>
             </table>
-
 
         </div>
 
@@ -151,10 +147,12 @@ require('../controller/supporter.php');
 
                 dom: 'frtip',
                 responsive: true,
-                pageLength: 5,
+                pageLength: 15,
 
 
             });
         });
     </script>
+
+
 

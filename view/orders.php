@@ -19,19 +19,16 @@ CURLOPT_HTTPHEADER => array(
 ),
 ));
 
-// get the response and store
 $response = curl_exec($curl);
-// if there are any errors
 $err = curl_error($curl);
-// close the session
 curl_close($curl);
 
-// convert the response to PHP object
-$decodedResponse = json_decode($response);
+//get the decoded data
+$Responses = json_decode($response);
 
-// check if the object has a status property and if its equal to 'success' ie. if verification was successful
-if(isset($decodedResponse->data->status) && $decodedResponse->data->status === 'success'){
-    // get form values
+//if the decoded data are successfully grabed
+if(isset($Responses->data->status) && $Responses->data->status === 'success'){
+    //get the necassary transaction information
     $email = $_GET['email'];
     $inv_no=mt_rand(1000,10000);
     $ord_date=date("Y/m/d");
@@ -39,7 +36,7 @@ if(isset($decodedResponse->data->status) && $decodedResponse->data->status === '
     $amount=$_GET['amount']/100;
     $order_id= implode(IDorder());
 
-
+    //insert the order in the database
     $addorder=InsertingOrder($ord_date, $inv_no,$amount,$quantity, $email);
     if($addorder){
         $cart=displayingCart(19);

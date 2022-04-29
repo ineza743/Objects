@@ -34,7 +34,7 @@ $Todisplay=fetched_Businessproduct($login_id);
     <body class="g-sidenav-show  bg-gray-200">
     <div class="container-fluid display-table">
         <div class="row display-table-row">
-        <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+        <div style="position: fixed;" class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
         
         <div class="navi">
             <ul>
@@ -53,7 +53,7 @@ $Todisplay=fetched_Businessproduct($login_id);
             </ul>
         </div>
     </div>
-            <div class="col-md-10 col-sm-11 display-table-cell v-align">
+            <div style="padding-left:10%;margin-left:10%" class="col-md-10 col-sm-11 display-table-cell v-align">
 
 
 

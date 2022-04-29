@@ -75,7 +75,10 @@ final class EntreconnectTest extends TestCase
         $user = new Opportunities();
         $this->assertTrue($user->adding_opportunity('opportunity_name', '100', 'details', '2022-04-08', 1, 'fdere@shik'));
     }
-    
+    public function testUserCanSendMessage(): void {
+        $user = new supporter();
+        $this->assertTrue(TRUE);
+    }
     /**opportunity */
     public function testOpportunitiesCanBeDisplayed(): void {
         $user = new Opportunities();

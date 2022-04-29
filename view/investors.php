@@ -8,30 +8,33 @@ require('../controller/supporter.php');
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-colvis-1.6.1/b-html5-1.6.1/b-print-1.6.1/r-2.2.3/datatables.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<body class="home">
-    
-<div class="container-fluid display-table">
-        <div class="row display-table-row">
-            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
-        
-                <div class="navi">
-                    <ul>
-                    <a href="../index.php" ><img src="images/logo2.JPG" width="90" alt="logo"></a>
-                        <li  ><a href="./businessDashboard.php"><i style="color:#e11584" class="fa fa-dashboard" ></i><span >Dashboard</span></a></li>
-                        <li><a href="Businessproduct.php"><i style="color:#e11584"  class="fa fa-product-hunt" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Products</span></a></li>
-                        <li><a href="../messaging/chat.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
 
-                        <li class="active"><a href="investors.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Investors</span></a></li>
-                        <li><a href="incubators.php"><i style="color:#e11584" class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Incubators</span></a></li>
-                       <hr>
-                                         <br>
-                       <br>
-                        <li><a href="../user_login/logout.php"><i style="color:#e11584"  class="fa fa-sign-out" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
-                        <br>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-10 col-sm-11 display-table-cell v-align">
+    
+    <!-- side bar -->
+    <body class="g-sidenav-show  bg-gray-200">
+    <div class="container-fluid display-table">
+        <div class="row display-table-row">
+        <div style="position: fixed;left: 0;" class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+        
+        <div style="margin-left:10%" class="navi">
+            <ul>
+            <a href="../index.php" ><img src="images/logo2.JPG" width="90" alt="logo"></a>
+                <li ><a href="./businessDashboard.php"><i style="color:#e11584" class="fa fa-dashboard" ></i><span >Dashboard</span></a></li>
+                <li ><a href="Businessproduct.php"><i style="color:#e11584"  class="fa fa-product-hunt" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Products</span></a></li>
+                <li><a href="../messaging/chat.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
+
+                <li class="active"><a href="investors.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Investors</span></a></li>
+                <li><a href="incubators.php"><i style="color:#e11584" class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Incubators</span></a></li>
+               <hr>
+                                 <br>
+               <br>
+                <li><a href="../user_login/logout.php"><i style="color:#e11584"  class="fa fa-sign-out" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
+                <br>
+            </ul>
+        </div>
+    </div>
+            <div style="padding-left:10%;margin-left:10%" class="col-md-10 col-sm-11 display-table-cell v-align">
+
                 <div class="row">
                     <header>
                         <div class="col-md-7">
@@ -66,7 +69,7 @@ require('../controller/supporter.php');
             <thead style="background: #e11584; color:white;">
                     
                     <tr>
-                        
+                    <th>N0</th>
                     <th>Name</th>
 							<th>email</th>
 							<th>address</th>
@@ -84,6 +87,7 @@ require('../controller/supporter.php');
             $Todisplay=selecting_investors();
             foreach($Todisplay as $investor){
           ?>
+        <td><?php echo $i ?> </td>
         <td><?php echo $investor['first_name']," ", $investor['last_name'] ?> </td>
         <td><?php echo $investor['email'] ?></td>
         <td><?php echo $investor['address'] ?></td>
@@ -143,7 +147,7 @@ require('../controller/supporter.php');
 
                 dom: 'frtip',
                 responsive: true,
-                pageLength: 5,
+                pageLength: 15,
 
 
             });
