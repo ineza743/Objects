@@ -21,7 +21,7 @@ require('../controller/business.php');
             <a href="../index.php" ><img src="images/logo2.JPG" width="90" alt="logo"></a>
                 <li ><a href="./investor_dashboard.php"><i style="color:#e11584" class="fa fa-dashboard" ></i><span >Dashboard</span></a></li>
                 <li ><a href="opportunity_upload.php"><i style="color:#e11584"  class="fa fa-product-hunt" aria-hidden="true"></i><span class="hidden-xs hidden-sm">My opportunities</span></a></li>
-                <li><a href="../messaging/chat.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
+                <li><a href="../messaging/chat2.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
 
                 <li class="active"><a href="businesses.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Businesses</span></a></li>
                <hr>
@@ -94,7 +94,7 @@ require('../controller/business.php');
         <td><?php echo $investor['bussiness_name'] ?></td>
         <td><?php echo $investor['business_type'] ?></td>
         <td><?php echo $investor['document'] ?></td>
-         <td><a href="../messaging/chat.php?id=<?php echo $investor['business_id'];?>"><span class="glyphicon lyphicon glyphicon-envelope"></span></a> </td>
+         <td><a href="../messaging/chat2.php?id=<?php echo $investor['business_id'];?>"><span class="glyphicon lyphicon glyphicon-envelope"></span></a> </td>
                     </tr>
                   <?php  $i=$i+1; } ?>
 

@@ -60,7 +60,7 @@
             <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
               <div class="icon"><i class="bx bx-cart"></i></div>
               <h4 class="title"><a style="text-decoration: none !important;" href="view/public.php">Buyers</a></h4>
-              <p class="description">Signup as public here!<br> you get to view available products and can purchase and pay for the desired items.</p>
+              <p  class="description">Navigate as a buyer here!<br> View available products and purchase(pay) your desired items. A chatbot is available to answer your questions.</p>
             </div>
           </div>
 

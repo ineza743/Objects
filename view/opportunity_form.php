@@ -30,7 +30,7 @@
             <a href="../index.php" ><img src="images/logo2.JPG" width="90" alt="logo"></a>
                 <li ><a href="./investor_dashboard.php"><i style="color:#e11584" class="fa fa-dashboard" ></i><span >Dashboard</span></a></li>
                 <li class="active" ><a href="opportunity_upload.php"><i style="color:#e11584"  class="fa fa-product-hunt" aria-hidden="true"></i><span class="hidden-xs hidden-sm">My opportunities</span></a></li>
-                <li><a href="../messaging/chat.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
+                <li><a href="../messaging/chat2.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
 
                 <li ><a href="businesses.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Businesses</span></a></li>
                <hr>
@@ -41,8 +41,7 @@
             </ul>
         </div>
     </div>
-    <div style="padding-left:10%;margin-left:10%" class="col-md-10 col-sm-11 display-table-cell v-align">
-
+    <div style="margin-right:10%;margin-left:20%; " class=" v-align">
 
 
 
@@ -120,8 +119,8 @@ button:focus {
 
      <div class="container-fluid px-1 py-5 mx-auto">
     <div class="row d-flex justify-content-center">
-        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-           
+        <div class="">
+        <br><h1>Funding Opportunities</h1>
             <div class="card">
                 <h5 class="text-center mb-4">Enter opportunity details</h5>
                 <form class="form-card" method="post" action="../controller_actions/adding_opp.php" enctype="multipart/form-data" id="opportunityForm">
@@ -159,16 +158,7 @@ button:focus {
 
 
 
-      <!--footer -->
-      <footer class="footer py-4  ">
-      <div style="background-color:rgb(233, 233, 250); margin-bottom:-10%; padding:2%">
-    <footer >
-        <div class="container">
-            
-                    <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
-                </div>
- 
-    </footer>
+
 </div>
         
 </div>
