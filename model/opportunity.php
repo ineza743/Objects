@@ -18,6 +18,10 @@ class Opportunities extends Connection{
 	function fetch_opportunity($opportunity_id){
 		return $this->fetchOne("select * from investor_opportunity where opportunity_id='$opportunity_id' ORDER BY opportunity_id DESC");
 	}
+
+	function sum_opportunity($user_id){
+		return $this->fetchOne("select count(opportunity_id) from investor_opportunity where investor_id='$user_id' ");
+	}
 	
 
 }

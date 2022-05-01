@@ -75,7 +75,7 @@ require('../controller/supporter.php');
 							<th>address</th>
 							<th>phone</th>
 							<th>occupation</th>
-							<th>business type</th>
+							<th>supports</th>
                                 <th>View</th>
                                  <th>Message</th>
 

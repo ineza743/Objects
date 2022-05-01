@@ -19,12 +19,11 @@ require('../controller/business.php');
         <div style="margin-left:10%" class="navi">
             <ul>
             <a href="../index.php" ><img src="images/logo2.JPG" width="90" alt="logo"></a>
-                <li ><a href="./businessDashboard.php"><i style="color:#e11584" class="fa fa-dashboard" ></i><span >Dashboard</span></a></li>
-                <li ><a href="Businessproduct.php"><i style="color:#e11584"  class="fa fa-product-hunt" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Products</span></a></li>
+                <li ><a href="./investor_dashboard.php"><i style="color:#e11584" class="fa fa-dashboard" ></i><span >Dashboard</span></a></li>
+                <li ><a href="opportunity_upload.php"><i style="color:#e11584"  class="fa fa-product-hunt" aria-hidden="true"></i><span class="hidden-xs hidden-sm">My opportunities</span></a></li>
                 <li><a href="../messaging/chat.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
 
-                <li class="active"><a href="investors.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Investors</span></a></li>
-                <li><a href="incubators.php"><i style="color:#e11584" class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Incubators</span></a></li>
+                <li class="active"><a href="businesses.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Businesses</span></a></li>
                <hr>
                                  <br>
                <br>
@@ -75,8 +74,8 @@ require('../controller/business.php');
 							<th>address</th>
 							<th>phone</th>
 							<th>occupation</th>
-							<th>business type</th>
-                                <th>View</th>
+							<th>type</th>
+                                <th>document link</th>
                                  <th>Message</th>
 
                     </tr>
@@ -88,14 +87,14 @@ require('../controller/business.php');
             foreach($Todisplay as $investor){
           ?>
         <td><?php echo $i ?> </td>
-        <td><?php echo $investor['first_name']," ", $investor['last_name'] ?> </td>
+        <td><?php echo $investor['f_name']," ", $investor['l_name'] ?> </td>
         <td><?php echo $investor['email'] ?></td>
         <td><?php echo $investor['address'] ?></td>
         <td><?php echo $investor['phone'] ?></td>
-        <td><?php echo $investor['occupation'] ?></td>
+        <td><?php echo $investor['bussiness_name'] ?></td>
         <td><?php echo $investor['business_type'] ?></td>
-         <td><a href="../administrator/opportunity.php?email=<?php echo $investor['email'];?>"><span class="glyphicon glyphicon-eye-open"></span></a> </td>
-         <td><a href="../messaging/chat.php?id=<?php echo $investor['investor_id'];?>"><span class="glyphicon lyphicon glyphicon-envelope"></span></a> </td>
+        <td><?php echo $investor['document'] ?></td>
+         <td><a href="../messaging/chat.php?id=<?php echo $investor['business_id'];?>"><span class="glyphicon lyphicon glyphicon-envelope"></span></a> </td>
                     </tr>
                   <?php  $i=$i+1; } ?>
 

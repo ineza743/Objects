@@ -19,111 +19,35 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="./assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+  <link href="css/side.css" rel="stylesheet">
+
 </head>
 
-<!-- side bar -->
-<body class="g-sidenav-show  bg-gray-200">
-  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
-    <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
-              <i class="material-icons opacity-10">person</i>
-
-        <span class="ms-1 font-weight-bold text-white">EntreConnect</span>
-      </a>
-    </div>
-    <hr class="horizontal light mt-0 mb-2">
-    <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link text-white active " href="./businessDashboard.php">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">dashboard</i>
-            </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white bg-gradient-primary" href="./Businessproduct.php">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
-            </div>
-            <span class="nav-link-text ms-1">Product page</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./pages/billing.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
-            </div>
-            <span class="nav-link-text ms-1">Messages</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./pages/virtual-reality.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">view_in_ar</i>
-            </div>
-            <span class="nav-link-text ms-1">Potential partners</span>
-          </a>
-        </li>
-     
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./pages/notifications.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Notifications</span>
-          </a>
-        </li>
-        <hr class="horizontal light mt-0 mb-2">
-       <br>
+<div style="position: fixed;left: 0;" class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
         
-       <li class="nav-item">
-          <a class="nav-link text-white " href="./pages/sign-in.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">home</i>
-            </div>
-            <span class="nav-link-text ms-1">home</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./pages/sign-in.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">logout</i>
-            </div>
-            <span class="nav-link-text ms-1">logout</span>
-          </a>
-        </li>
-        
-      </ul>
+        <div style="margin-left:10%" class="navi">
+            <ul>
+            <a href="../index.php" ><img src="images/logo2.JPG" width="90" alt="logo"></a>
+                <li ><a href="./investor_dashboard.php"><i style="color:#e11584" class="fa fa-dashboard" ></i><span >Dashboard</span></a></li>
+                <li class="active" ><a href="opportunity_upload.php"><i style="color:#e11584"  class="fa fa-product-hunt" aria-hidden="true"></i><span class="hidden-xs hidden-sm">My opportunities</span></a></li>
+                <li><a href="../messaging/chat.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
+
+                <li ><a href="businesses.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Businesses</span></a></li>
+               <hr>
+                                 <br>
+               <br>
+                <li><a href="../user_login/logout.php"><i style="color:#e11584"  class="fa fa-sign-out" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
+                <br>
+            </ul>
+        </div>
     </div>
-    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-
-    </div>
-  </aside>
-<!-- End side bar -->
+    <div style="padding-left:10%;margin-left:10%" class="col-md-10 col-sm-11 display-table-cell v-align">
 
 
 
 
 
-  <!-- navbar -->
-  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-  <nav style="padding:2%" class="navbar navbar-expand-lg navbar-light bg-light">
-                
-      <div class="input-group" style=" margin-left:20%">
-      <div class="form-outline">
-        <input type="search" id="form1" class="form-control" />
-        <label class="form-label" for="form1" aria-label="Search">Search</label>
-      </div>
-      <button type="button" class="btn btn-primary">
-        <i class="fas fa-search"></i>
-      </button>
-    </div>
-    </nav>
-    <br>
-     <!--  The end of navbar -->
+
 
 
      
@@ -240,25 +164,7 @@ button:focus {
       <div style="background-color:rgb(233, 233, 250); margin-bottom:-10%; padding:2%">
     <footer >
         <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-3 item text">
-                    <h3>Contacts</h3>
-                    <ul>
-                        <li><p>Email: Entreconnect@gmail.com</p></li>
-                        <li><p>Number: 233 890 183 6542</p></li>
-                        <li><p>Location: 1, university avenue</p></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-md-3 item">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#">Ecommerce</a></li>
-                        <li><a href="#">Incubation</a></li>
-                        <li><a href="#">Funding</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 item text">
-                    <h3>Vision </h3>
+            
                     <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
                 </div>
  

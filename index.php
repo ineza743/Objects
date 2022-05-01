@@ -59,7 +59,7 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
               <div class="icon"><i class="bx bx-cart"></i></div>
-              <h4 class="title"><a style="text-decoration: none !important;" href="view/public.php">Public</a></h4>
+              <h4 class="title"><a style="text-decoration: none !important;" href="view/public.php">Buyers</a></h4>
               <p class="description">Signup as public here!<br> you get to view available products and can purchase and pay for the desired items.</p>
             </div>
           </div>

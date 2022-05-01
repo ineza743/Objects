@@ -11,28 +11,32 @@ require('../controller/opportunity.php');
 <body class="home">
     <div class="container-fluid display-table">
         <div class="row display-table-row">
-            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+        <div style="position: fixed;left: 0;" class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
         
-                <div class="navi">
-                    <ul>
-                    <li ><a href="./index.php"><span class="hidden-xs hidden-sm">EntreConnect</span></a></li>
-                        <li  class="active"><a href="#"><i style="color:#e11584" class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
-                        <li><a href="#"><i style="color:#e11584"  class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Workflow</span></a></li>
-                        <li><a href="#"><i style="color:#e11584"  class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Statistics</span></a></li>
-                        <li><a href="#"><i style="color:#e11584" class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Calender</span></a></li>
-                        <li><a href="#"><i style="color:#e11584"  class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Users</span></a></li>
-                        <li><a href="#"><i style="color:#e11584"  class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Setting</span></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-10 col-sm-11 display-table-cell v-align">
+        <div style="margin-left:10%" class="navi">
+            <ul>
+            <a href="../index.php" ><img src="images/logo2.JPG" width="90" alt="logo"></a>
+                <li ><a href="./investor_dashboard.php"><i style="color:#e11584" class="fa fa-dashboard" ></i><span >Dashboard</span></a></li>
+                <li class="active" ><a href="opportunity_upload.php"><i style="color:#e11584"  class="fa fa-product-hunt" aria-hidden="true"></i><span class="hidden-xs hidden-sm">My opportunities</span></a></li>
+                <li><a href="../messaging/chat.php"><i style="color:#e11584"  class="fa fa-envelope" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
+
+                <li ><a href="businesses.php"><i style="color:#e11584"  class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Businesses</span></a></li>
+               <hr>
+                                 <br>
+               <br>
+                <li><a href="../user_login/logout.php"><i style="color:#e11584"  class="fa fa-sign-out" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
+                <br>
+            </ul>
+        </div>
+    </div>
+    <div style="padding-left:10%;margin-left:10%" class="col-md-10 col-sm-11 display-table-cell v-align">
                 <div class="row">
                     <header>
                         <div class="col-md-7">
                             <nav class="navbar-default pull-center">
                                 <div class="navbar-header">
-                                <h1 >Upload your opportunities</h1>
-                                <li class="hidden-xs"><a href="opportunity_form.php" class="add-project" >Upload</a></li>
+                                <h1 >My Funding Opportunities</h1>
+                                <li class="hidden-xs"><a style="background:#e11584" href="opportunity_form.php" class="add-project" >Upload new opportunity</a></li>
                                 </div>
                             </nav>
                         </div>
@@ -58,8 +62,7 @@ require('../controller/opportunity.php');
 
             <table class="table table-bordered table-hover" id="table_id">
 
-                <thead>
-                    
+            <thead style="background: #e11584; color:white;">                    
                     <tr>
                         
                         <th data-priority="1">#</th>

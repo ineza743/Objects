@@ -63,7 +63,13 @@ session_start();
         $sql1 = "SELECT distinct(email),investor_id,last_name,first_name,document,messagedate, Max(content) FROM messaging LEFT JOIN investor ON investor.investor_id = messaging.receiver_id
                 WHERE sender_id = {$login_id} 
                 GROUP BY investor_id";
+
+          $sql2= "SELECT distinct(email),business_id,f_name,l_name,picture,messagedate, Max(content) FROM messaging LEFT JOIN business ON business.business_id = messaging.receiver_id
+          WHERE sender_id = {$login_id} 
+          GROUP BY business_id";
         $query = mysqli_query($conn, $sql1);
+        $query2 = mysqli_query($conn, $sql2);
+
         
         ?>
 
@@ -100,7 +106,26 @@ session_start();
               </div>
          
             </div>
-            <?php } } }?>
+            <?php } } 
+
+
+if(mysqli_num_rows($query2) > 0){
+while($row = mysqli_fetch_assoc($query2)){ ?> 
+<div class="chat_list ">
+
+  <div class="chat_people">
+  <a style="text-decoration: none;color:black" href="?id=<?php echo $row['business_id'];?>">
+    <div class="chat_img"> <img src=<?php echo $row['picture'];?> alt="sunil"> </div>
+    <div class="chat_ib">
+      <h5 style="color:white;"><?php echo $row['f_name'], " ",$row['l_name'] ?> <span class="chat_date"><?php echo $row['messagedate'];?></span></h5>
+      <p style="color:rgb(145, 129, 141)"><?php echo $row['email'];?></p>
+    </div> </a>
+
+  </div>
+
+</div>
+<?php } } }?>
+            
             
           </div>
         </div >
@@ -111,15 +136,25 @@ session_start();
         if (isset($_GET['id'])){
           $user_id = mysqli_real_escape_string($conn, $_GET['id']);
           $sql = mysqli_query($conn, "SELECT * FROM investor WHERE investor_id = {$user_id}");
+          $sql3 = mysqli_query($conn, "SELECT * FROM business WHERE business_id = {$user_id}");
+
           if(mysqli_num_rows($sql) > 0){
             $row = mysqli_fetch_assoc($sql);
-          }
-        ?>
+            ?>
         <div  class="details">
           <span style="color: black; font-size: 25px;">Chatting with <?php echo $row['first_name']. " " . $row['last_name'] ?>...</span>
         </div>
       </header>
-        <?php } 
+        <?php }else if(mysqli_num_rows($sql3) > 0){
+$row = mysqli_fetch_assoc($sql3);
+?>
+<div  class="details">
+<span style="color: black; font-size: 25px;">Chatting with <?php echo $row['f_name']. " " . $row['l_name'] ?>...</span>
+</div>
+</header>
+<?php
+        }  }
+        
 
       //if there is no conversation yet, the id should start out to be 0
         else{

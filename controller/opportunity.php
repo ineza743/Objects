@@ -22,4 +22,9 @@ function fetched_product($opportunity_id){
     return $opp->fetch_opportunity($opportunity_id);
 }
 
+function total_opportunity($opportunity_id){
+    $opp = new Opportunities();
+    return $opp->sum_opportunity($opportunity_id);
+}
+
 ?>

@@ -8,7 +8,7 @@ require('../controller/supporter.php');
 require('../controller/business.php');
 require('../controller/opportunity.php');
 $businesses=implode(selecting_total()); //total number of businesses
-$incubators=implode(total_incubator());  //total number of incubators
+$investors=implode(total_investor());  //total number of incubators
 $opportunities=implode(total_opportunity($login_id));  //total number of incubators
 
 
@@ -146,7 +146,7 @@ $opportunities=implode(total_opportunity($login_id));  //total number of incubat
 
       <div style="padding-left:3%;margin-left:15%" class="col-md-4 col-lg-10 main">
         <h1 class="display-2 hidden-xs-down">
-            Investors Dashboard
+            Incubators Dashboard
             </h1><br>
 
 
@@ -180,8 +180,8 @@ $opportunities=implode(total_opportunity($login_id));  //total number of incubat
                 <div class="rotate">
                   <i class="fa fa-user fa-5x"></i>
                 </div>
-                <h6  class="text-uppercase">Total Incubators</h6>
-                <h1 class="display-1"><?php echo intval($incubators) ?></h1>
+                <h6  class="text-uppercase">Total Investors</h6>
+                <h1 class="display-1"><?php echo intval($investors) ?></h1>
               </div>
             </div>
           </div>
