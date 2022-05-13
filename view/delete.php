@@ -1,20 +1,15 @@
 <?php
 
-// Create connection
-$conn = mysqli_connect('localhost','root', getenv('DATABASEPASSWORD') ?? "", 'Entreconnect');
+require('../controller/product.php');
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
+$id = $_GET['id'];
+$delete = deleted_product($id);
 
-$id = $_post['id'];
-$sql = "delete from product where product_id = '$id'";
-if (mysqli_query($conn, $sql)) {
-    echo "Record deleted successfully";
-} else {
-    echo "Error deleting record: " . mysqli_error($conn);
-}
-mysqli_close($conn);
+if ($delete) {
+  echo ("<script>alert('Product Successfully deleted!'); window.location.href = 'cart.php';</script>");}
+  
+
+else {
+  echo ("<script>alert('Product not deleted!'); window.location.href = 'cart.php';</script>");}
+
 ?>

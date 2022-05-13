@@ -76,8 +76,11 @@ require('../controller/opportunity.php');
                 </thead>
                 <tbody>
                 <?php
+                 session_start();
+                 $login_id = $_SESSION['login_id'];
+
                   $i=1;
-            $Todisplay=fetched_opportunities();
+            $Todisplay=fetched_opportunity($login_id);
                   foreach($Todisplay as $opportunity){
                       ?>
                     <tr>

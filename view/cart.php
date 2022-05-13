@@ -1,3 +1,6 @@
+
+
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -191,26 +194,14 @@ a:hover {
 </head>
 <body>
 <nav class="navbar navbar-expand-lg  " style="background: #f343a4; padding:-20%">
-  <a style="color:white" class="navbar-brand" href="#">EntreConnect</a>
+  <a style="color:white" class="navbar-brand" href="public.php"><i class="fa fa-long-arrow-left"></i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div id="navbarSupportedContent">
-    <ul class=" navbar-nav mr-auto">
-      <li class=" nav-item active">
-        <a  style="color:white; " class="nav-link" href="../index.php">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a style="color:white" class="nav-link" href="public.php">Shop</a>
-      </li>
- 
-   
-    </ul>
-
-  </div>
 </nav>
-<br><br>
+<br><br><br>
+
 
 
 <div class="card">
@@ -250,7 +241,7 @@ a:hover {
                 </div>
                     <div class="col">&dollar; <?=$product['price']*$product['quantity_nbr'];?><span class="close"></span></div>
                     <div>
-                    <a href="javascript:void(0)" style=" color: #E34724;" class="delete" data-id='<?=$product['product_id']; ?>'><i class="material-icons">&#xE872;</i></a></div>
+                    <a href="delete.php?id=<?php echo $product['product_id']; ?>" style=" color: #E34724;" class="delete" data-id='<?=$product['product_id']; ?>'><i class="material-icons">&#xE872;</i></a></div>
                 </div>
             </div>
    
@@ -288,7 +279,7 @@ a:hover {
    
 </div>
 </div>
-<br> 
+<br><br><br>
 <nav class="navbar navbar-expand-lg align-items-center" style="background: #f343a4; padding:-20%; color:white; ">
 &copy; Copyright <strong><span> EntreConnect</span></strong>. All Rights Reserved
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -302,32 +293,7 @@ a:hover {
 </nav>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-      
-<script type="text/javascript">
-$(function() {
-$(".delete").click(function(){
-var element = $(this);
-var id = $(this).data('id');
-if(confirm("Are you sure you want to delete this item?"))
-{
- $.ajax({
-   type: 'POST',
-   data: { id: id },
-   dataType: "html",
-   url: 'delete.php',
 
-   success: function(data){
-    location.reload();
-    jQuery('#id').fadeOut('slow');
-
- }
-});
- }
- 
-return false;
-});
-});
-</script>
 
 
 <script src="https://js.paystack.co/v1/inline.js"></script>

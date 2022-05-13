@@ -128,7 +128,7 @@ button:focus {
 
                     <div class="row justify-content-between text-left">
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Opportunity name<span class="text-danger"> *</span></label> <input type="text" id="name" name="name" placeholder="Enter opportunity name" > </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">reward<span class="text-danger"> *</span></label> <input type="number" id="reward" name="reward" placeholder="Enter reward"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">reward (GHC)<span class="text-danger"> *</span></label> <input type="number" id="reward" name="reward" placeholder="Enter reward"> </div>
                     </div>
 
                     

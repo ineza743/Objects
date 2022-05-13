@@ -25,7 +25,7 @@ $opportunities=implode(total_opportunity($login_id));  //total number of incubat
 
 <head>
   <meta charset="utf-8">
-  <title>Investors</title>
+  <title>Incubators</title>
   <base target="_self">
   <meta name="description" content="A Bootstrap 4 admin dashboard theme that will get you started. The sidebar toggles off-canvas on smaller screens. This example also include large stat blocks, modal and cards. The top navbar is controlled by a separate hamburger toggle button."
   />
@@ -220,104 +220,7 @@ $opportunities=implode(total_opportunity($login_id));  //total number of incubat
 
 </div>
 
-        <hr>
-        <div class="row mb-3">
-          <div class="col-lg-3 col-md-8">
-            <div style="padding-bottom:40%" class="card card-inverse bg-inverse mt-3">
-              <div class="card-block">
-                <h3 class="card-title">Recent Contacts</h3>
-                <p class="card-text">The table on the right presents to you top businesses you have been contacting recently.</p>
-                <a href="#" class="btn btn-outline-secondary">Send Message</a>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-lg-9 col-md-8">
-            <div class="table-responsive">
-              <table class="table table-striped">
-              <thead style="background-color:#e11584; color:white;">
-                                            <tr >
-                                                <th style="color:white;">#</th>
-                                                <th style="color:white;">business name</th>
-                                                <th style="color:white;">recent date</th>
-                                                <th style="color:white;">Email</th>
-                                                <th style="color:white;">address</th>
-                                      
-
-                                            </tr>
-                                        </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Kanatnka</td>
-                    <td>2022-05-03</td>
-                    <td>usalo.merde@mail.com</td>
-                    <td>1 st avenur</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Student</td>
-                    <td>2022-04-31</td>
-                    <td>shirwa4@gmail.com</td>
-                    <td>Kigarama, Kicukiro</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>consultant</td>
-                    <td>2022-04-30</td>
-                    <td>ao@gmail.com</td>
-                    <td>GKigarama, Butare</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>coder</td>
-                    <td>2022-04-26</td>
-                    <td>twaifinaa4@gmail.com</td>
-                    <td>Esternern</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>turntabl</td>
-                    <td>2022-04-22</td>
-                    <td>gdxurusaro@gmail.com</td>
-                    <td>KK 438 ste</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td>FI</td>
-                    <td>2022-04-11</td>
-                    <td>uwase.merde@gmail.com</td>
-                    <td>KN 450 N</td>
-                  </tr>
-                  <tr>
-                    <td>7</td>
-                    <td>Banker Gramlu</td>
-                    <td>2022-03-28</td>
-                    <td>shirwa4@gmail.com</td>
-                    <td>st 340 e</td>
-                  </tr>
-                  <tr>
-                    <td>8</td>
-                    <td>fruihui</td>
-                    <td>2022-03-25</td>
-                    <td>tilkaxurusaro@gmail.com</td>
-                    <td>KK 350 ST</td>
-                  </tr>
-                  <tr>
-                    <td>9</td>
-                    <td>Kigali InnovationsC</td>
-                    <td>2022-03-24</td>
-                    <td>twaifinaa4@gmail.com</td>
-                    <td>2t steret</td>
-                  </tr>
-               
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <!--/row-->
-
+       
         <hr>
   
         <div >

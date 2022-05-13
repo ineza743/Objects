@@ -27,10 +27,16 @@ if(isset($_POST['signup'])){
         $adding=adding_investor($first_name,$last_name,$email,$address,$phone,$occupation,$business,$FileDestination,$details,$password);
     
         if($adding===true){
-            header("Location:investor_login.php");
+			echo "<script>
+            alert('Investor successfully registered! you can now login');
+            window.location.href = 'investor_login.php';
+            </script>";
         }
         else{
-            echo "<script>alert('Could not register the user! ')</script>";
+			echo "<script>
+            alert('Error in registering the user! try again');
+            window.location.href = 'investor_signup.php';
+            </script>";
 		}
 	}  
 	else{

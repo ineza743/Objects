@@ -44,13 +44,19 @@ class business extends Connection{
         where business_id = '$business_id'");
 	}
 
-		//updating business's status
-		function update_status($status, $business_email){
-			return $this->query("update business set status= '$status' where email = '$business_email' ");
-		}
+	//top 3 businesses with higher profit
+	function high_profit(){
+		return $this->fetch("SELECT bus.businessname, SUM(prod.price) FROM business bus JOIN
+		product prod ON prod.productid = bus.productId WHERE product.porder_date > now() - interval 1 week ORDER BY prod.price DESC LIMIT 3 ");
+	}
 
-		//getting total businesses
-		function total_business(){
-			return $this->fetchOne("select count(business_id) from business");
-		}
+	//updating business's status
+	function update_status($status, $business_email){
+		return $this->query("update business set status= '$status' where email = '$business_email' ");
+	}
+
+	//getting total businesses
+	function total_business(){
+		return $this->fetchOne("select count(business_id) from business");
+	}
 }

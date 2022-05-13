@@ -132,7 +132,7 @@ $Todisplay=fetched_products(); //fetch all products from the database
             <div class="row p-2 pt-3 pb-3 d-flex align-items-center">
                 <div class="col-md-2"><a href="../index.php"> <img class="d-none d-md-flex" src="./images/logo2.JPG" width="100"></a></div>
                 <div class="col-md-8">
-                    <div class="d-flex form-inputs"> <input class="form-control" type="text" placeholder="Search any product..."> <i class="bx bx-search"></i> </div>
+                    <div class="d-flex form-inputs"> <input class="form-control" type="text" placeholder="Search any product..."> <a href="#"><i class="bx bx-search"></i></a> </div>
                 </div>
                 <div class="col-md-2">
                     <div class="d-flex d-none d-md-flex flex-row align-items-center"> <span class="shop-bag"><a href="../view/cart.php"><i class='bx bxs-shopping-bag'></i></a></span>
@@ -144,9 +144,9 @@ $Todisplay=fetched_products(); //fetch all products from the database
         <div class="container-fluid"> <a class="navbar-brand d-md-none d-md-flex" href="#">Categories</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav " >
-                    <li class="nav-item"> <a style=" color: white" class="nav-link active" aria-current="page" href="#">Clothing</a> </li>
-                    <li class="nav-item"> <a style=" color: white" class="nav-link" href="#">Electronics</a> </li>
-                    <li class="nav-item"> <a style=" color: white" class="nav-link" href="#">Furnitures</a> </li>
+                    <li class="nav-item"> <a style=" color: white" class="nav-link active" aria-current="page" href="#cloth">Fashion</a> </li>
+                    <li class="nav-item"> <a style=" color: white" class="nav-link" href="#electro">Electronics</a> </li>
+                    <li class="nav-item"> <a style=" color: white" class="nav-link" href="#furni">Furnitures</a> </li>
                     <li class="nav-item dropdown"> <a style=" color: white" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Food </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="#">beverages</a></li>
@@ -169,7 +169,7 @@ $Todisplay=fetched_products(); //fetch all products from the database
                 <div class="container">
                     
             <!-- Li's Static Banner Area End Here -->
-            <section class="product-area li-laptop-product pt-60 pb-45">
+            <section id="cloth" class="product-area li-laptop-product pt-60 pb-45">
                 <div class="container">
                     <div class="row">
                         <!-- Begin Li's Section Area -->
@@ -250,172 +250,459 @@ $Todisplay=fetched_products(); //fetch all products from the database
             <div class="product-area pt-60 pb-50">
                 <div class="container">
                     
-            <!-- Li's Static Banner Area End Here -->
-            <section class="product-area li-laptop-product pt-60 pb-45">
+                <section class="product-area li-laptop-product li-tv-audio-product pb-45">
                 <div class="container">
                     <div class="row">
                         <!-- Begin Li's Section Area -->
                         <div class="col-lg-12">
                             <div class="li-section-title">
                                 <h2>
-                                    <span>Clothing</span>
+                                    <span>Electronics</span>
                                 </h2>
+      
                             </div>
-              
                             <div class="row">
-              
-                                <div class="product-active owl-carousel">
-                                <?php      
-                            $ipadd=FetchIpAddr();
-                            $quantity=1;
-                            $buyer_id=19;
-
-
-                foreach($Todisplay as $product){
-                    $prodid=$product['product_id'];
-
-                    ?>
+                                <div id="electro" class="product-active owl-carousel">
                                     <div class="col-lg-12">
-
                                         <!-- single-product-wrap start -->
                                         <div class="single-product-wrap">
-                                            
                                             <div class="product-image">
                                                 <a href="#">
-                                                    <img src=<?php echo $product['picture'] ?> alt="Li's Product Image" width="20" height="120px">
+                                                    <img src="images/ele7.jpg" alt="Li's Product Image">
                                                 </a>
-                                              
                                             </div>
                                             <div class="product_desc">
                                                 <div class="product_desc_info">
                                                     <div class="product-review">
                                                         <h5 class="manufacturer">
-                                                            <a href="#"><?php echo $product['information'] ?></a>
+                                                            <a href="#">64GB memory</a>
                                                         </h5>
                                                         
                                                     </div>
-                                                    <h4><a class="product_name" href="single-product.html"><?php echo $product['product_name'] ?></a></h4>
+                                                    <h4><a class="product_name" href="#">MacBook pro</a></h4>
                                                     <div class="price-box">
-                                                        <span class="new-price">$<?php echo $product['price'] ?></span>
+                                                        <span class="new-price">£400.80</span>
                                                     </div>
                                                 </div>
-                                               
                                                 <div class="add-actions">
                                                     <ul class="add-actions-link">
-                                                        <li class="add-cart active"><a href="<?php echo '../controller_actions/adding_cart.php?prodid='.$prodid.'&ipadd='.$ipadd.'&bid='.$buyer_id.'&quantity='.$quantity ?>">Add to cart</a></li>
-    
-
+                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
                                                         <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
                                                     </ul>
-                                                    
                                                 </div>
-                                                
                                             </div>
-                                          
                                         </div>
                                         <!-- single-product-wrap end -->
-                                       
-                                        
-                </div>
-                <?php } ?>      
-
-</div>
-
-              
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="single-product.html">
+                                                    <img src="images/ele3.jpg" alt="Li's Product Image">
+                                                </a>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="#">best quality watch</a>
+                                                        </h5>
+                                                      
+                                                    </div>
+                                                    <h4><a class="product_name" href="#">Iwatch</a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price new-price-2">$91.80</span>
+                                                        <span class="old-price">$110.22</span>
+                                                        <span class="discount-percentage">-7%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="single-product.html">
+                                                    <img src="images/ele5.jpg" alt="Li's Product Image">
+                                                </a>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="#">best offer</a>
+                                                        </h5>
+                                                        
+                                                    </div>
+                                                    <h4><a class="product_name" href="#">Charger</a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price">$46.80</span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="single-product.html">
+                                                    <img src="images/ele6.jpg" alt="Li's Product Image">
+                                                </a>
+                                                <span class="sticker">New</span>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="#">best offer</a>
+                                                        </h5>
+                                                      
+                                                    </div>
+                                                    <h4><a class="product_name" href="#">Mouse</a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price new-price-2">$71.80</span>
+                                                        <span class="old-price">$77.22</span>
+                                                        <span class="discount-percentage">-7%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="single-product.html">
+                                                    <img src="images/ele4.jpg" alt="Li's Product Image">
+                                                </a>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="#"> Best offer</a>
+                                                        </h5>
+                                                      
+                                                    </div>
+                                                    <h4><a class="product_name" href="#">Type C charger</a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price">$46.80</span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="single-product.html">
+                                                    <img src="images/ele2.jpg" alt="Li's Product Image">
+                                                </a>
+                                                <span class="sticker">New</span>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="#">Best design</a>
+                                                        </h5>
+                                                        
+                                                    </div>
+                                                    <h4><a class="product_name" href="#">MacBook</a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price new-price-2">$71.80</span>
+                                                        <span class="old-price">$77.22</span>
+                                                        <span class="discount-percentage">-7%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Li's Section Area End Here -->
                     </div>
                 </div>
+            </section>
+            </div>
+     
 
-
-                
-
+            
             <!-- Begin Product Area -->
-            <div class="product-area pt-60 pb-50">
+            <div id="furni" class="product-area pt-60 pb-50">
                 <div class="container">
                     
-            <!-- Li's Static Banner Area End Here -->
-            <section class="product-area li-laptop-product pt-60 pb-45">
+                <section class="product-area li-laptop-product li-tv-audio-product pb-45">
                 <div class="container">
                     <div class="row">
                         <!-- Begin Li's Section Area -->
                         <div class="col-lg-12">
                             <div class="li-section-title">
                                 <h2>
-                                    <span>Clothing</span>
+                                    <span>Furniture</span>
                                 </h2>
+      
                             </div>
-              
                             <div class="row">
-              
                                 <div class="product-active owl-carousel">
-                                <?php      
-                            $ipadd=FetchIpAddr();
-                            $quantity=1;
-                            $buyer_id=19;
-
-
-                foreach($Todisplay as $product){
-                    $prodid=$product['product_id'];
-
-                    ?>
                                     <div class="col-lg-12">
-
                                         <!-- single-product-wrap start -->
                                         <div class="single-product-wrap">
-                                            
                                             <div class="product-image">
-                                                <a href="#">
-                                                    <img src=<?php echo $product['picture'] ?> alt="Li's Product Image" width="20" height="120px">
+                                                <a href="single-product.html">
+                                                    <img src="images/fur1.jpg" alt="Li's Product Image">
                                                 </a>
-                                              
                                             </div>
                                             <div class="product_desc">
                                                 <div class="product_desc_info">
                                                     <div class="product-review">
                                                         <h5 class="manufacturer">
-                                                            <a href="#"><?php echo $product['information'] ?></a>
+                                                            <a href="#">good furniture</a>
                                                         </h5>
                                                         
                                                     </div>
-                                                    <h4><a class="product_name" href="single-product.html"><?php echo $product['product_name'] ?></a></h4>
+                                                    <h4><a class="product_name" href="#">Bed Chair</a></h4>
                                                     <div class="price-box">
-                                                        <span class="new-price">$<?php echo $product['price'] ?></span>
+                                                        <span class="new-price">£400.80</span>
                                                     </div>
                                                 </div>
-                                               
                                                 <div class="add-actions">
                                                     <ul class="add-actions-link">
-                                                        <li class="add-cart active"><a href="<?php echo '../controller_actions/adding_cart.php?prodid='.$prodid.'&ipadd='.$ipadd.'&bid='.$buyer_id.'&quantity='.$quantity ?>">Add to cart</a></li>
-    
-
+                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
                                                         <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
                                                     </ul>
-                                                    
                                                 </div>
-                                                
                                             </div>
-                                          
                                         </div>
                                         <!-- single-product-wrap end -->
-                                       
-                                        
-                </div>
-                <?php } ?>      
-
-</div>
-
-              
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="single-product.html">
+                                                    <img src="images/fur2.jpg" alt="Li's Product Image">
+                                                </a>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="#"> Design</a>
+                                                        </h5>
+                                                      
+                                                    </div>
+                                                    <h4><a class="product_name" href="#">Agenda</a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price new-price-2">$71.80</span>
+                                                        <span class="old-price">$77.22</span>
+                                                        <span class="discount-percentage">-7%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="single-product.html">
+                                                    <img src="images/fur3.jpg" alt="Li's Product Image">
+                                                </a>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="shop-left-sidebar.html">best decoration items</a>
+                                                        </h5>
+                                                        
+                                                    </div>
+                                                    <h4><a class="product_name" href="single-product.html">Flower Vase</a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price">$46.80</span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="single-product.html">
+                                                    <img src="images/fur4.jpg" alt="Li's Product Image">
+                                                </a>
+                                                <span class="sticker">New</span>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="#">best offer</a>
+                                                        </h5>
+                                                        <div class="rating-box">
+                                                            <ul class="rating">
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <h4><a class="product_name" href="#">Clothes hungers</a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price new-price-2">$71.80</span>
+                                                        <span class="old-price">$77.22</span>
+                                                        <span class="discount-percentage">-7%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="#">
+                                                    <img src="images/fur5.jpg" alt="Li's Product Image">
+                                                </a>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="shop-left-sidebar.html">Best offer device</a>
+                                                        </h5>
+                                                     
+                                                    </div>
+                                                    <h4><a class="product_name" href="single-product.html">Table furniture</a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price">$46.80</span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="#">
+                                                    <img src="images/fur2.jpg" alt="Li's Product Image">
+                                                </a>
+                                                <span class="sticker">New</span>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="#">best designs</a>
+                                                        </h5>
+                                                        
+                                                    </div>
+                                                    <h4><a class="product_name" href="#">valise</a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price new-price-2">$71.80</span>
+                                                        <span class="old-price">$77.22</span>
+                                                        <span class="discount-percentage">-7%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Li's Section Area End Here -->
                     </div>
                 </div>
-                
             </section>
-          
+            </div>
+            </div>
             
     <!-- ======= footer bar ======= -->
     <section id="topbar" style="margin-bottom:-20%" class="d-flex align-items-center">
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div  class="contact-info d-flex align-items-center">
         &copy; Copyright <strong><span> EntreConnect</span></strong>. All Rights Reserved
-      </div>
+        </div>
 
       </div>
       </section>

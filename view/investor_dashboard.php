@@ -9,7 +9,7 @@ require('../controller/business.php');
 require('../controller/opportunity.php');
 $businesses=implode(selecting_total()); //total number of businesses
 $incubators=implode(total_incubator());  //total number of incubators
-$opportunities=implode(total_opportunity($login_id));  //total number of incubators
+$opportunities=implode(total_opportunity($login_id));  //total number of investors
 
 
 

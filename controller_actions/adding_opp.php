@@ -8,16 +8,19 @@ if(isset($_POST['add'])){
     $deadline = $_POST['deadline'];
     $link = $_POST['link'];
     $info = $_POST['info'];
+
+    session_start();
+    $login_id = $_SESSION['login_id'];
     
-    $success= added_opportunity($name, $reward, $info, $deadline, 1, $link); //add the details
+    $success= added_opportunity($name, $reward, $info, $deadline, $login_id, $link); //add the details
         
 
     //if the file was successfully submitted
     if($success){
-        header("Location: ../view/investor_dashboard.php");
+        header("Location: ../view/opportunity_upload.php");
     }
     else{
-       header("Location: ../view/investor_dashboard.php");
+       header("Location: ../view/opportunity_upload.php");
     }
     
 

@@ -1,7 +1,15 @@
-<?php          
-  require_once("../controller/product.php");
-  $Product_categories = fetched_categories();
-?>
+<?php
+require('../controller/product.php');
+
+$id = $_GET['Pid'];
+$Todisplay=fetched_product($id); 
+
+if(isset($_post['add'])){
+
+  updated_product($id,2002, 'goodyerar', 120,'picture.png','infom.com');
+
+}
+  ?>
 
 
 <!DOCTYPE html>
@@ -11,7 +19,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-  <title>Business owner dashboard</title>
+  <title>Editing</title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
@@ -126,46 +134,34 @@ button:focus {
      <div>
     <div class="row d-flex justify-content-center">
         <div >
-           <br><h1>New Products</h1>
+           <br><h1>Editing Products</h1>
             <div class="card">
-                <h5 class="text-center mb-4">Enter Product details</h5>
-                <form class="form-card" method="post" action="../controller_actions/adding_prod.php" enctype="multipart/form-data" id="productForm">
-
+                <h5 class="text-center mb-4">Edit the Product</h5>
+                <form class="form-card" method="post" action="" enctype="multipart/form-data" id="productForm">
 
                     <div class="row justify-content-between text-left">
-                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">product name<span class="text-danger"> *</span></label> <input type="text" id="prodname" name="prodname" placeholder="Enter product name"> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">production year<span class="text-danger"> *</span></label> <input type="year" id="id" name="id" placeholder="Enter product year" > </div>
+                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">product name<span class="text-danger"> *</span></label> <input type="text" id="prodname" name="prodname" value = "<?php echo $Todisplay['product_name']; ?>"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">price<span class="text-danger"> *</span></label> <input type="year" id="id" name="id" value = "<?php echo $Todisplay['price']; ?>" > </div>
                     </div>
 
                     <div class="row justify-content-between text-left">
-                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">color<span class="text-danger"> </span></label> <input type="text" id="cl" name="cl" placeholder="Enter the products color"> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Size<span class="text-danger"> </span></label> <input type="number" id="sz" name="sz" placeholder="Enter product size" > </div>
+                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">color<span class="text-danger"> </span></label> <input type="text" id="cl" name="cl" value = "<?php echo $Todisplay['product_name']; ?>"> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Size<span class="text-danger"> </span></label> <input type="number" id="sz" name="sz" value = "<?php echo $Todisplay['product_name']; ?>" > </div>
                     </div>
                  
 
                     
                     <div class="row justify-content-between text-left">
                     
-                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">price (GHC)<span class="text-danger"> *</span></label> <input type="number" id="price" name="price" placeholder=""> </div>
-                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">picture<span class="text-danger"> *</span></label> <input type="file" name="pict" id="pict" placeholder="" > </div>
+                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">price<span class="text-danger"> *</span></label> <input type="number" id="price" name="price" value = "<?php echo $Todisplay['product_name']; ?>"> </div>
+                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">picture<span class="text-danger"> *</span></label> <input type="file" name="pict" id="pict" value = "<?php echo $Todisplay['product_name']; ?>"> </div>
             </div>
 
                     <div class="row justify-content-between text-left">
 
-                    <div class="form-group col-6 flex-column d-flex"> <label class="form-control-label px-3">Information<span class="text-danger"> </span></label> <input type="text" id="info" name="info" placeholder="more information..." > </div>
+                    <div class="form-group col-6 flex-column d-flex"> <label class="form-control-label px-3">Information<span class="text-danger"> </span></label> <input type="text" id="info" name="info" value = "<?php echo $Todisplay['product_name']; ?>"> </div>
 
-                    <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">category_name<span class="text-danger"> *</span></label> <select name="catname" > 
-                    <option class="form-control-label px-3" value="" ><label class="form-control-label px-3 ">select..</label></option>
-                <?php
-                foreach($Product_categories as $category){
-                    echo "<option value=".$category['category_id'].">".$category['category_name']."</options>";
-                }
-            ?>
-            </select>
-                    </div>
 
-                    </div>
-          
                     <div class="row justify-content-end">
                         <div class="form-group col-sm-12"> <button type="submit" name="add" class="btn-block btn-primary">Save</button> </div>
                     </div>

@@ -15,9 +15,9 @@ function deleted_product($product_id){
     return $prod->deleting_product($product_id);
 }
 
-function updated_product($product_id, $product_name, $category_id, $price,$picture,$information){
+function updated_product($product_id,$prodyear, $product_name, $price,$picture,$information){
     $prod = new Product();
-    return $prod->updating_product($product_id, $product_name, $category_id,$price,$picture,$information);
+    return $prod->updating_product($product_id,$prodyear, $product_name, $price,$picture,$information);
 }
 
 function fetched_products(){
@@ -26,9 +26,9 @@ function fetched_products(){
 }
 
 
-function fetched_product($id){
+function fetched_product($product_id){
     $prod = new Product();
-    return $prod->fetchOne($id);
+    return $prod->fetch_product($product_id);
 }
 
 function fetched_Businessproduct($id){

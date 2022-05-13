@@ -1,7 +1,7 @@
 <?php
 
 ini_set('display_errors','Off'); //supress some unneeded warnings
-session_start();
+session_start(); //start the session
 $login_id = $_SESSION['login_id']; //current businesses id
 
 require('../controller/supporter.php');

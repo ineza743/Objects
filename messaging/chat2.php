@@ -24,8 +24,8 @@ session_start();
 <body>
 
 <?php 
-  //$conn = mysqli_connect('sql6.freemysqlhosting.net','sql6481550',"DwzLIGU18M", 'sql6481550');
-  $conn = mysqli_connect('localhost','root', getenv('DATABASEPASSWORD') ?? "", 'Entreconnect');
+  $conn = mysqli_connect('sql10.freemysqlhosting.net','sql10489346',"96QGIs2kD3", 'sql10489346');
+  //$conn = mysqli_connect('localhost','root', getenv('DATABASEPASSWORD') ?? "", 'Entreconnect');
   if(!$conn){
     echo "Database connection error".mysqli_connect_error();
   }

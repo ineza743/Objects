@@ -17,14 +17,14 @@ function fetched_opportunities(){
 }
 
 
-function fetched_product($opportunity_id){
+function fetched_opportunity($opportunity_id){
     $opp = new Opportunities();
     return $opp->fetch_opportunity($opportunity_id);
 }
 
-function total_opportunity($opportunity_id){
+function total_opportunity($user_id){
     $opp = new Opportunities();
-    return $opp->sum_opportunity($opportunity_id);
+    return $opp->sum_opportunity($user_id);
 }
 
 ?>

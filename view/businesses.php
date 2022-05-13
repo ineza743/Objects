@@ -69,13 +69,13 @@ require('../controller/business.php');
                     
                     <tr>
                     <th>N0</th>
-                    <th>Name</th>
+                    <th>Business</th>
 							<th>email</th>
 							<th>address</th>
 							<th>phone</th>
-							<th>occupation</th>
+							<th>Representative</th>
 							<th>type</th>
-                                <th>document link</th>
+                                <th>info link</th>
                                  <th>Message</th>
 
                     </tr>
@@ -87,11 +87,11 @@ require('../controller/business.php');
             foreach($Todisplay as $investor){
           ?>
         <td><?php echo $i ?> </td>
-        <td><?php echo $investor['f_name']," ", $investor['l_name'] ?> </td>
+        <td><?php echo $investor['bussiness_name'] ?> </td>
         <td><?php echo $investor['email'] ?></td>
         <td><?php echo $investor['address'] ?></td>
         <td><?php echo $investor['phone'] ?></td>
-        <td><?php echo $investor['bussiness_name'] ?></td>
+        <td><?php echo $investor['f_name'], " ",$investor['l_name']  ?></td>
         <td><?php echo $investor['business_type'] ?></td>
         <td><?php echo $investor['document'] ?></td>
          <td><a href="../messaging/chat2.php?id=<?php echo $investor['business_id'];?>"><span class="glyphicon lyphicon glyphicon-envelope"></span></a> </td>

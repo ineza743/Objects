@@ -19,7 +19,6 @@ function selecting_investors(){
 function selecting_investor($email){
     $investor = new supporter();
     return $investor->select_investor($email);
-
 }
 
 //deleting investor

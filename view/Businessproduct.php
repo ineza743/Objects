@@ -3,8 +3,7 @@ require('../controller/product.php');
 ini_set('display_errors','Off'); //supress some unneeded warnings
 session_start();
 $login_id = $_SESSION['login_id']; //current businesses id
-$Todisplay=fetched_Businessproduct($login_id);
-
+$Todisplay=fetched_Businessproduct($login_id); 
 
 
 ?>
@@ -61,6 +60,15 @@ $Todisplay=fetched_Businessproduct($login_id);
 
 <br>
 
+<?php if (isset($_SESSION['message'])): ?>
+	<div class="msg">
+		<?php 
+			echo $_SESSION['message']; 
+			unset($_SESSION['message']);
+		?>
+	</div>
+<?php endif ?>
+
      <h1 style="text-align:center">My Products</h1>
      
   
@@ -98,7 +106,7 @@ $Todisplay=fetched_Businessproduct($login_id);
                         <h4 class="mr-1">GHC <?php echo $product['price'] ?></h4>
                     </div>
                     <h6 class="text-success">Delivery available</h6>
-                    <div class="d-flex flex-column mt-4"><button class="btn btn-outline-primary btn-sm" type="button">Edit</button>
+                    <div class="d-flex flex-column mt-4"><button class="btn btn-outline-primary btn-sm" type="button"><a href="edit.php?Pid=<?php echo $product['product_id']; ?>" class="edit">Edit</a></button>
                     <button class="btn btn-danger btn-sm mt-2"  id="delete"  ><a href="#" data-id='<?=$product['product_id']; ?>' class="delete">Delete</a></button></div>
                 </div>
             </div>

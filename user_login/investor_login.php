@@ -9,7 +9,10 @@ if (isset($_POST['signin'])) {
 	$investor = selecting_investor($username);
     
 	if (empty($investor)) {
-        echo ("<script>alert('Unknown email!'); window.location.href = 'investor_login.php';</script>");}
+        $_SESSION['message'] = "Error! Incorrect email!"; 
+       // header('location: investor_login.php');
+        //echo ("<script>alert('Unknown email!'); window.location.href = 'investor_login.php';</script>");
+    }
 
     else  {
         $_SESSION['login_id'] = $investor['investor_id'];
@@ -22,6 +25,7 @@ if (isset($_POST['signin'])) {
 
 
 ?>
+
 
 
 <!DOCTYPE html>
@@ -59,6 +63,16 @@ if (isset($_POST['signin'])) {
   	min-height: 40px;
 }
 
+.msg {
+    margin: 30px auto; 
+    padding: 10px; 
+    border-radius: 5px; 
+    color: white; 
+    background: red; 
+    border: 1px solid #3c763d;
+    width: 50%;
+    text-align: center;
+}
   
 </style>
 
@@ -78,7 +92,18 @@ if (isset($_POST['signin'])) {
 
     </div>
   </header><br>
+
+
+
 <div class="login-form">
+<?php if (isset($_SESSION['message'])): ?>
+        <div class="msg">
+		<?php 
+			echo $_SESSION['message']; 
+			unset($_SESSION['message']);
+		?>
+	</div>
+<?php endif ?>
     <form style="box-shadow: 4px 4px 4px 4px rgba( 0.6,  0.6,  0.6, 0.6);" action="" method="post">
         <h2 class="text-center">Sign in</h2>   
         <div class="form-group">

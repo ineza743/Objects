@@ -13,23 +13,23 @@ class Product extends Connection{
 	}
     
 	function deleting_product($product_id){
-		return $this->query("delete from product where product_id = '$product_id'");
+		return $this->query("delete from cart where product_id = '$product_id'");
 	}
 
-	function updating_product($prodyear, $product_name, $category_id,$price,$picture,$information){
-		return $this->query("update product set prodyear='$prodyear', product_name='$product_name', category_id='$category_id', price='$price' , picture = '$picture', information='$information' where product_id = '$product_id'");
+	function updating_product($product_id,$prodyear, $product_name, $price,$picture,$information){
+		return $this->query("update product set prodyear='$prodyear', product_name='$product_name', price='$price' , picture = '$picture', information='$information' where product_id = '$product_id'");
 	}
     function fetch_products(){
 		return $this->fetch("select * from product");
 	}
 	
 	function fetch_product($product_id){
-		return $this->fetchOne("select * from product where product_id='$product_id'");
+		return $this->fetch("select * from product where product_id='$product_id'");
 	}
 	
 	
 	function fetch_Businessproduct($business_id){
-		return $this->fetch("select * from product where business_id='$business_id'");
+		return $this->fetch("select * from product where business_id='$business_id' ORDER BY product_id DESC");
 	}
 
 	function fetch_product_cat($category_id){
